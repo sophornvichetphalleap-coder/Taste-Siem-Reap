@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>Taste Siem Reap · Contact Us</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== reset & base ===== */
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+        body {
+            background-image: url('bg5.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #18231c;
+            color: var(--text);
+            font-family: "DM Sans", sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            min-height: 100dvh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(82, 120, 87, .35), transparent 45%),
+                linear-gradient(180deg,
+                    rgba(20, 30, 24, .88) 0%,
+                    rgba(18, 28, 22, .92) 45%,
+                    rgba(12, 20, 15, .96) 100%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+    a { color:inherit; text-decoration:none; }
+    button { font-family:inherit; cursor:pointer; border:none; background:none; }
+    img { display:block; width:100%; height:auto; max-width:100%; }
+
+    /* ===== variables ===== */
+    :root {
+      --bg: #18231c;
+      --bg-soft: #202d24;
+      --card: #253329;
+      --card-hover: #2d3d31;
+      --gold: #dfb866;
+      --gold-light: #f5d995;
+      --text: #faf8f0;
+      --muted: #c0c8bf;
+      --muted-dark: #8e988d;
+      --border: rgba(235,240,230,.14);
+      --shadow: 0 20px 50px rgba(0,0,0,.28);
+      --radius: 20px;
+
+      --header-height: 70px;
+      --container-padding: 20px;
+    }
+
+    /* ============================================================
+       HEADER
+    ============================================================ */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(25, 38, 29, .94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      height: var(--header-height);
+      transition: height 0.3s ease;
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 100%;
+      padding: 0 var(--container-padding);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 700;
+      letter-spacing: .3px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(15px, 2vw, 30px);
+      list-style: none;
+      height: var(--header-height);
+    }
+
+    .nav-links a {
+      color: #e1e6df;
+      font-size: clamp(12px, 1vw, 14px);
+      font-weight: 500;
+      transition: .25s ease;
+      position: relative;
+      padding: 5px 0;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--gold-light); }
+
+    .nav-links a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      background: var(--gold);
+      border-radius: 10px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .nav-action {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      background: transparent;
+      cursor: pointer;
+      transition: .25s ease;
+      font-size: 14px;
+    }
+
+    .nav-action:hover {
+      border-color: var(--gold);
+      color: var(--gold-light);
+      background: rgba(223, 184, 102, .08);
+    }
+
+    .language-wrapper { position: relative; }
+
+    .language-btn {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      background: transparent;
+      cursor: pointer;
+      transition: .25s ease;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .language-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold-light);
+      background: rgba(223, 184, 102, .08);
+    }
+
+    .language-menu {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 10px);
+      min-width: 145px;
+      padding: 7px;
+      background: #26372c;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      display: none;
+      z-index: 100;
+    }
+
+    .language-menu.show { display: block; }
+
+    .language-option {
+      width: 100%;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      padding: 10px 11px;
+      border-radius: 10px;
+      text-align: left;
+      cursor: pointer;
+      font-size: 13px;
+      transition: .2s ease;
+    }
+
+    .language-option:hover,
+    .language-option.active {
+      background: rgba(223, 184, 102, .15);
+      color: var(--gold-light);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: .3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    .mobile-nav-overlay {
+      display: none;
+      position: fixed;
+      top: var(--header-height);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(18, 35, 22, .97);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 999;
+      padding: 30px var(--container-padding);
+      overflow-y: auto;
+    }
+
+    .mobile-nav-overlay.open { display: block; }
+
+    .mobile-nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mobile-nav-links a {
+      display: block;
+      padding: 16px 20px;
+      color: var(--text);
+      font-size: 18px;
+      font-weight: 500;
+      border-radius: 12px;
+      transition: .25s ease;
+      text-align: center;
+    }
+
+    .mobile-nav-links a:hover,
+    .mobile-nav-links a.active {
+      background: rgba(223, 184, 102, .15);
+      color: var(--gold-light);
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .contact-hero {
+      max-width:1200px;
+      margin:0 auto;
+      padding:clamp(80px, 12vw, 120px) clamp(16px, 4vw, 24px) clamp(24px, 4vw, 48px);
+      text-align:center;
+    }
+    .eyebrow {
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:clamp(2px, 0.4vw, 3px);
+      font-size:clamp(10px, 1.2vw, 12px);
+      font-weight:700;
+      margin-bottom:14px;
+    }
+    .contact-hero h1 {
+      font-family:"Playfair Display",serif;
+      font-size:clamp(32px, 9vw, 76px);
+      line-height:1.08;
+      max-width:900px;
+      margin:0 auto;
+    }
+    .contact-hero h1 span { color:var(--gold); }
+    .contact-hero p {
+      max-width:720px;
+      margin:clamp(16px, 3vw, 24px) auto 0;
+      color:var(--muted);
+      font-size:clamp(14px, 1.4vw, 16px);
+      padding:0 clamp(4px, 2vw, 8px);
+    }
+
+    /* ============================================================
+       MAIN
+    ============================================================ */
+    .contact-section {
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 clamp(16px, 4vw, 24px) clamp(60px, 8vw, 80px);
+      flex:1 0 auto;
+      width:100%;
+    }
+
+    .contact-layout {
+      display:grid;
+      grid-template-columns:1.2fr 1fr;
+      gap:clamp(24px, 4vw, 44px);
+      align-items:start;
+    }
+
+    /* ===== FORM ===== */
+    .contact-form-wrap {
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:clamp(18px, 3vw, 24px);
+      padding:clamp(24px, 5vw, 44px);
+    }
+    .contact-form-wrap h2 {
+      font-family:"Playfair Display",serif;
+      font-size:clamp(20px, 3vw, 28px);
+      margin-bottom:6px;
+      line-height:1.2;
+    }
+    .contact-form-wrap h2 span { color:var(--gold); }
+    .contact-form-wrap > p {
+      color:var(--muted);
+      font-size:clamp(13px, 1.05vw, 14.5px);
+      margin-bottom:clamp(20px, 3vw, 28px);
+    }
+
+    .form-group {
+      margin-bottom:clamp(14px, 2.5vw, 20px);
+    }
+    .form-label {
+      display:block;
+      color:var(--gold-light);
+      font-size:clamp(12px, 1vw, 13.5px);
+      font-weight:600;
+      margin-bottom:8px;
+      letter-spacing:0.3px;
+    }
+    .form-label .required {
+      color:#e88b8b;
+      margin-left:3px;
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width:100%;
+      padding:13px 16px;
+      background:rgba(18,28,22,.6);
+      border:1px solid var(--border);
+      border-radius:12px;
+      color:var(--text);
+      font-family:inherit;
+      font-size:clamp(13px, 1.05vw, 14.5px);
+      transition:border-color .25s ease, background .25s ease, box-shadow .25s ease;
+      outline:none;
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color:var(--muted-dark);
+    }
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      border-color:var(--gold);
+      background:rgba(18,28,22,.85);
+      box-shadow:0 0 0 3px rgba(223,184,102,.12);
+    }
+    .form-textarea {
+      resize:vertical;
+      min-height:130px;
+      line-height:1.6;
+    }
+    .form-select {
+      cursor:pointer;
+      appearance:none;
+      -webkit-appearance:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23dfb866' d='M6 8 0 0h12z'/%3E%3C/svg%3E");
+      background-repeat:no-repeat;
+      background-position:right 16px center;
+      padding-right:42px;
+    }
+    .form-select option {
+      background:#1c2a20;
+      color:var(--text);
+    }
+
+    .form-submit {
+      width:100%;
+      padding:14px 24px;
+      border-radius:999px;
+      background:var(--gold);
+      color:#1a2318;
+      font-size:clamp(13.5px, 1.1vw, 15px);
+      font-weight:700;
+      letter-spacing:0.3px;
+      cursor:pointer;
+      border:none;
+      font-family:inherit;
+      transition:.25s ease;
+      margin-top:6px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+    }
+    .form-submit:hover {
+      background:var(--gold-light);
+      transform:translateY(-2px);
+    }
+    .form-submit:active {
+      transform:translateY(0);
+    }
+
+    .form-message {
+      margin-top:16px;
+      padding:12px 16px;
+      border-radius:12px;
+      font-size:clamp(12.5px, 1vw, 13.5px);
+      display:none;
+    }
+    .form-message.success {
+      display:block;
+      background:rgba(82,160,110,.15);
+      border:1px solid rgba(120,200,150,.4);
+      color:#b8ecc6;
+    }
+    .form-message.error {
+      display:block;
+      background:rgba(200,80,80,.15);
+      border:1px solid rgba(230,120,120,.4);
+      color:#f0b8b8;
+    }
+
+    /* ===== SIDE PANEL ===== */
+    .contact-side {
+      display:flex;
+      flex-direction:column;
+      gap:clamp(16px, 2.5vw, 22px);
+    }
+
+    .side-card {
+      background:var(--bg-soft);
+      border:1px solid var(--border);
+      border-radius:clamp(16px, 2.5vw, 20px);
+      padding:clamp(20px, 3vw, 28px);
+    }
+    .side-card h3 {
+      font-family:"Playfair Display",serif;
+      font-size:clamp(17px, 1.8vw, 20px);
+      margin-bottom:14px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .side-card h3 .icon {
+      width:36px;
+      height:36px;
+      border-radius:10px;
+      background:rgba(223,184,102,.12);
+      border:1px solid rgba(223,184,102,.3);
+      display:grid;
+      place-items:center;
+      font-size:17px;
+      flex-shrink:0;
+    }
+
+    .contact-detail {
+      display:flex;
+      gap:12px;
+      padding:10px 0;
+      border-bottom:1px solid var(--border);
+      font-size:clamp(13px, 1.05vw, 14px);
+      color:var(--muted);
+      align-items:flex-start;
+    }
+    .contact-detail:last-child { border-bottom:none; padding-bottom:0; }
+    .contact-detail:first-of-type { padding-top:0; }
+    .contact-detail .emoji {
+      font-size:16px;
+      flex-shrink:0;
+      line-height:1.4;
+    }
+    .contact-detail strong {
+      color:var(--text);
+      font-weight:600;
+      display:block;
+      margin-bottom:2px;
+      font-size:clamp(12.5px, 1vw, 13.5px);
+    }
+    .contact-detail a {
+      color:var(--gold-light);
+      transition:color .25s ease;
+    }
+    .contact-detail a:hover { color:var(--gold); }
+
+    /* Social row */
+    .social-row {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:6px;
+    }
+    .social-btn {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 16px;
+      border-radius:999px;
+      background:rgba(223,184,102,.1);
+      border:1px solid rgba(223,184,102,.25);
+      color:var(--gold-light);
+      font-size:clamp(12px, 0.95vw, 13px);
+      font-weight:500;
+      transition:.25s ease;
+      cursor:pointer;
+    }
+    .social-btn:hover {
+      background:rgba(223,184,102,.2);
+      border-color:var(--gold);
+      transform:translateY(-2px);
+    }
+
+    /* Map placeholder */
+    .map-card {
+      background:var(--bg-soft);
+      border:1px solid var(--border);
+      border-radius:clamp(16px, 2.5vw, 20px);
+      overflow:hidden;
+    }
+    .map-embed {
+      width:100%;
+      height:220px;
+      background:
+        radial-gradient(circle at 40% 40%, rgba(223,184,102,.15), transparent 60%),
+        linear-gradient(135deg, #1f2b22, #2a3a2e);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      gap:8px;
+      color:var(--muted);
+      font-size:clamp(12px, 1vw, 13px);
+      text-align:center;
+      padding:20px;
+      position:relative;
+    }
+    .map-embed .pin {
+      font-size:36px;
+      filter:drop-shadow(0 4px 10px rgba(0,0,0,.5));
+    }
+    .map-embed .label {
+      color:var(--gold-light);
+      font-weight:600;
+      font-size:clamp(13px, 1.05vw, 14px);
+    }
+
+    /* FAQ teaser */
+    .faq-teaser {
+      display:block;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:clamp(16px, 2.5vw, 20px);
+      padding:clamp(20px, 3vw, 26px);
+      transition:transform .3s ease, border-color .3s ease, background .3s ease;
+    }
+    .faq-teaser:hover {
+      transform:translateY(-3px);
+      border-color:rgba(223,184,102,.4);
+      background:var(--card-hover);
+    }
+    .faq-teaser h3 {
+      font-family:"Playfair Display",serif;
+      font-size:clamp(16px, 1.7vw, 19px);
+      margin-bottom:8px;
+    }
+    .faq-teaser h3 span { color:var(--gold); }
+    .faq-teaser p {
+      color:var(--muted);
+      font-size:clamp(12.5px, 1vw, 13.5px);
+      margin-bottom:12px;
+    }
+    .faq-teaser .arrow {
+      color:var(--gold-light);
+      font-size:clamp(12.5px, 1vw, 13.5px);
+      font-weight:600;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      transition:gap .25s ease;
+    }
+    .faq-teaser:hover .arrow { gap:10px; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer.site-footer {
+      margin-top: clamp(50px, 8vh, 110px);
+      padding: clamp(30px, 4vh, 55px) var(--container-padding) clamp(18px, 3vh, 25px);
+      background: #111b15;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: clamp(20px, 4vw, 45px);
+    }
+
+    .footer-brand h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(20px, 2.2vw, 25px);
+      margin-bottom: 10px;
+    }
+
+    .footer-brand h2 span { color: var(--gold); }
+
+    .footer-brand p {
+      max-width: 350px;
+      color: var(--muted);
+      font-size: clamp(11px, 1vw, 13px);
+    }
+
+    .socials {
+      display: flex;
+      gap: 9px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social {
+      width: clamp(30px, 3vw, 35px);
+      height: clamp(30px, 3vw, 35px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      color: var(--muted);
+      font-size: clamp(11px, 1vw, 13px);
+      transition: .25s ease;
+      cursor: pointer;
+    }
+
+    .social:hover {
+      color: var(--gold-light);
+      border-color: var(--gold);
+    }
+
+    .footer-column h3 {
+      color: var(--gold);
+      font-size: clamp(10px, 0.9vw, 12px);
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .footer-column a {
+      display: block;
+      color: var(--muted);
+      font-size: clamp(11px, 0.9vw, 12px);
+      margin-bottom: 9px;
+      transition: .25s ease;
+    }
+
+    .footer-column a:hover { color: var(--gold-light); }
+
+    .copyright {
+      max-width: 1200px;
+      margin: clamp(20px, 3vh, 40px) auto 0;
+      padding-top: clamp(14px, 2vh, 20px);
+      border-top: 1px solid var(--border);
+      color: #849087;
+      font-size: clamp(10px, 0.8vw, 11px);
+      text-align: center;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .contact-layout { grid-template-columns:1fr; }
+    }
+
+    @media (max-width: 768px) {
+      :root { --header-height: 64px; --container-padding: 16px; }
+
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-action { width: 32px; height: 32px; font-size: 12px; }
+      .language-btn { width: 32px; height: 32px; font-size: 10px; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 25px; }
+      .mobile-nav-overlay { padding: 20px var(--container-padding) 40px; }
+      .mobile-nav-links a { font-size: 16px; padding: 14px 16px; }
+    }
+
+    @media (max-width: 480px) {
+      :root { --header-height: 58px; --container-padding: 14px; }
+      .logo { font-size: clamp(17px, 4.5vw, 20px); }
+      .nav-action { width: 28px; height: 28px; font-size: 11px; }
+      .language-btn { width: 28px; height: 28px; font-size: 9px; }
+      .hamburger span { width: 22px; height: 2px; }
+
+      .language-menu { min-width: 130px; right: -10px; }
+      .language-option { font-size: 12px; padding: 8px 10px; }
+      .mobile-nav-links a { font-size: 14px; padding: 12px 14px; }
+
+      .contact-form-wrap { padding:20px 18px; }
+      .form-input, .form-textarea, .form-select { padding:11px 13px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration:0.01ms !important;
+        transition-duration:0.01ms !important;
+      }
+      html { scroll-behavior:auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+============================================================ -->
+<header class="site-header">
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      Taste <span>Siem Reap</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="navHome">Home</a></li>
+      <li><a href="res.html" data-i18n="navRestaurants">Restaurants</a></li>
+      <li><a href="experience.html" data-i18n="navExperience">Experience</a></li>
+      <li><a href="Aboutus.html" data-i18n="navAbout">About Us</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-action" type="button" aria-label="Favorites" title="Favorites">♡</button>
+
+      <div class="language-wrapper" id="languageWrapper">
+        <button class="language-btn" id="languageButton" type="button" aria-label="Language">
+          <span id="currentLanguage">EN</span>
+        </button>
+        <div class="language-menu" id="languageMenu">
+          <button class="language-option active" data-language="en" type="button">🇬🇧 English</button>
+          <button class="language-option" data-language="zh" type="button">🇨🇳 中文</button>
+          <button class="language-option" data-language="km" type="button">🇰🇭 ខ្មែរ</button>
+        </div>
+      </div>
+
+      <button class="hamburger" id="hamburger" type="button" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- ============================================================
+     MOBILE NAV
+============================================================ -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <ul class="mobile-nav-links">
+    <li><a href="index.html" data-i18n="navHome">Home</a></li>
+    <li><a href="res.html" data-i18n="navRestaurants">Restaurants</a></li>
+    <li><a href="experience.html" data-i18n="navExperience">Experience</a></li>
+    <li><a href="Aboutus.html" data-i18n="navAbout">About Us</a></li>
+  </ul>
+</div>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="contact-hero">
+  <div class="eyebrow" data-i18n="contactEyebrow">We'd Love to Hear From You</div>
+  <h1><span data-i18n="contactTitle1">Get in</span> <span data-i18n="contactTitle2">Touch</span></h1>
+  <p data-i18n="contactIntro">Have a question, suggestion, or want to recommend a restaurant? Send us a message and we'll get back to you as soon as we can.</p>
+</section>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<section class="contact-section">
+
+  <div class="contact-layout">
+
+    <!-- ===== FORM ===== -->
+    <div class="contact-form-wrap">
+      <h2 data-i18n="formTitle">Send Us a <span>Message</span></h2>
+      <p data-i18n="formSubtitle">Fill out the form below and we'll respond within 1–2 business days.</p>
+
+      <form id="contactForm" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="name" data-i18n="labelName">Your Name<span class="required">*</span></label>
+          <input type="text" id="name" name="name" class="form-input" placeholder="e.g. Alex Chen" data-i18n-placeholder="phName" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email" data-i18n="labelEmail">Email Address<span class="required">*</span></label>
+          <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" data-i18n-placeholder="phEmail" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="subject" data-i18n="labelSubject">Subject<span class="required">*</span></label>
+          <select id="subject" name="subject" class="form-select" required>
+            <option value="" data-i18n="optChoose">— Please choose —</option>
+            <option value="general" data-i18n="optGeneral">General question</option>
+            <option value="suggest" data-i18n="optSuggest">Suggest a restaurant</option>
+            <option value="feedback" data-i18n="optFeedback">Feedback on the site</option>
+            <option value="partnership" data-i18n="optPartnership">Partnership / business</option>
+            <option value="other" data-i18n="optOther">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message" data-i18n="labelMessage">Message<span class="required">*</span></label>
+          <textarea id="message" name="message" class="form-textarea" placeholder="Tell us what's on your mind..." data-i18n-placeholder="phMessage" required></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">
+          <span>✉️</span>
+          <span data-i18n="btnSend">Send Message</span>
+        </button>
+
+        <div class="form-message" id="formMessage"></div>
+      </form>
+    </div>
+
+    <!-- ===== SIDE PANEL ===== -->
+    <div class="contact-side">
+
+      <!-- Contact Details -->
+      <div class="side-card">
+        <h3><span class="icon">📬</span><span data-i18n="detailsTitle">Contact Details</span></h3>
+
+        <div class="contact-detail">
+          <span class="emoji">📧</span>
+          <div>
+            <strong data-i18n="detailEmailLabel">Email</strong>
+            <a href="mailto:hello@tastesiemreap.com">hello@tastesiemreap.com</a>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <span class="emoji">📞</span>
+          <div>
+            <strong data-i18n="detailPhoneLabel">Phone / WhatsApp</strong>
+            <a href="tel:+85512345678">+855 12 345 678</a>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <span class="emoji">📍</span>
+          <div>
+            <strong data-i18n="detailAddressLabel">Location</strong>
+            <span data-i18n="detailAddress">Siem Reap, Cambodia</span>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <span class="emoji">⏰</span>
+          <div>
+            <strong data-i18n="detailHoursLabel">Response Time</strong>
+            <span data-i18n="detailHours">Within 1–2 business days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="map-card">
+        <div class="map-embed">
+          <div class="pin">📍</div>
+          <div class="label" data-i18n="mapLabel">Siem Reap, Cambodia</div>
+          <div data-i18n="mapSub">Serving travelers across the Angkor region</div>
+        </div>
+      </div>
+
+      <!-- Social -->
+      <div class="side-card">
+        <h3><span class="icon">🌐</span><span data-i18n="socialTitle">Follow Us</span></h3>
+        <p style="color:var(--muted); font-size:clamp(12.5px, 1vw, 13.5px); margin-bottom:6px;" data-i18n="socialText">Stay updated with new restaurant finds and travel tips.</p>
+        <div class="social-row">
+          <a href="#" class="social-btn">📘 <span>Facebook</span></a>
+          <a href="#" class="social-btn">📷 <span>Instagram</span></a>
+          <a href="#" class="social-btn">🐦 <span>Twitter</span></a>
+          <a href="#" class="social-btn">▶️ <span>YouTube</span></a>
+        </div>
+      </div>
+
+      <!-- FAQ teaser -->
+      <a href="faq.html" class="faq-teaser">
+        <h3 data-i18n="faqTeaserTitle">Looking for <span>quick answers?</span></h3>
+        <p data-i18n="faqTeaserText">Check our FAQ page — most common questions about food, prices, safety, and travel are already answered there.</p>
+        <span class="arrow"><span data-i18n="faqTeaserLink">Visit FAQ</span> →</span>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h2>Taste <span>Siem Reap</span></h2>
+      <p data-i18n="footerDescription">Your guide to the best restaurants, authentic experiences and travel tips in Siem Reap, Cambodia.</p>
+      <div class="socials">
+        <span class="social">f</span>
+        <span class="social">◎</span>
+        <span class="social">♪</span>
+        <span class="social">▶</span>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h3 data-i18n="exploreFooter">EXPLORE</h3>
+      <a href="res.html" data-i18n="navRestaurants">Restaurants</a>
+      <a href="experience.html" data-i18n="navExperience">Experience</a>
+      <a href="tip.html" data-i18n="travelTips">Travel Tips</a>
+      <a href="Aboutus.html" data-i18n="navAbout">About Us</a>
+    </div>
+
+    <div class="footer-column">
+      <h3 data-i18n="informationFooter">INFORMATION</h3>
+      <a href="hari.html" data-i18n="heritage">Heritage</a>
+      <a href="tvr.html" data-i18n="travelGuide">Travel Guide</a>
+      <a href="abtsr.html" data-i18n="aboutSiemReap">About Siem Reap</a>
+      <a href="faq.html" data-i18n="faq">FAQ</a>
+    </div>
+
+    <div class="footer-column">
+      <h3 data-i18n="supportFooter">SUPPORT</h3>
+      <a href="contactus.html" data-i18n="contactUs">Contact Us</a>
+      <a href="prv.html" data-i18n="privacy">Privacy Policy</a>
+      <a href="tou.html" data-i18n="terms">Terms of Use</a>
+    </div>
+  </div>
+
+  <div class="copyright" data-i18n="copyright">
+    © 2026 Taste Siem Reap. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  (function(){
+    // ----- translations -----
+    const translations = {
+      en: {
+        navHome: "Home",
+        navRestaurants: "Restaurants",
+        navExperience: "Experience",
+        navAbout: "About Us",
+
+        contactEyebrow: "We'd Love to Hear From You",
+        contactTitle1: "Get in",
+        contactTitle2: "Touch",
+        contactIntro: "Have a question, suggestion, or want to recommend a restaurant? Send us a message and we'll get back to you as soon as we can.",
+
+        formTitle: "Send Us a Message",
+        formSubtitle: "Fill out the form below and we'll respond within 1–2 business days.",
+
+        labelName: "Your Name",
+        labelEmail: "Email Address",
+        labelSubject: "Subject",
+        labelMessage: "Message",
+
+        phName: "e.g. Alex Chen",
+        phEmail: "you@example.com",
+        phMessage: "Tell us what's on your mind...",
+
+        optChoose: "— Please choose —",
+        optGeneral: "General question",
+        optSuggest: "Suggest a restaurant",
+        optFeedback: "Feedback on the site",
+        optPartnership: "Partnership / business",
+        optOther: "Other",
+
+        btnSend: "Send Message",
+
+        msgSuccess: "Thank you! Your message has been sent. We'll reply within 1–2 business days.",
+        msgError: "Please fill in all required fields with valid information.",
+
+        detailsTitle: "Contact Details",
+        detailEmailLabel: "Email",
+        detailPhoneLabel: "Phone / WhatsApp",
+        detailAddressLabel: "Location",
+        detailAddress: "Siem Reap, Cambodia",
+        detailHoursLabel: "Response Time",
+        detailHours: "Within 1–2 business days",
+
+        mapLabel: "Siem Reap, Cambodia",
+        mapSub: "Serving travelers across the Angkor region",
+
+        socialTitle: "Follow Us",
+        socialText: "Stay updated with new restaurant finds and travel tips.",
+
+        faqTeaserTitle: "Looking for quick answers?",
+        faqTeaserText: "Check our FAQ page — most common questions about food, prices, safety, and travel are already answered there.",
+        faqTeaserLink: "Visit FAQ",
+
+        footerDescription: "Your guide to the best restaurants, authentic experiences and travel tips in Siem Reap, Cambodia.",
+        exploreFooter: "EXPLORE",
+        informationFooter: "INFORMATION",
+        supportFooter: "SUPPORT",
+        travelTips: "Travel Tips",
+        heritage: "Heritage",
+        travelGuide: "Travel Guide",
+        aboutSiemReap: "About Siem Reap",
+        faq: "FAQ",
+        contactUs: "Contact Us",
+        privacy: "Privacy Policy",
+        terms: "Terms of Use",
+        copyright: "© 2026 Taste Siem Reap. All rights reserved."
+      },
+
+      km: {
+        navHome: "ទំព័រដើម",
+        navRestaurants: "ភោជនីយដ្ឋាន",
+        navExperience: "បទពិសោធន៍",
+        navAbout: "អំពីយើង",
+
+        contactEyebrow: "យើងចង់ឮពីអ្នក",
+        contactTitle1: "ទាក់ទង",
+        contactTitle2: "មកយើង",
+        contactIntro: "មានសំណួរ ការផ្ដល់យោបល់ ឬចង់ណែនាំភោជនីយដ្ឋាន? ផ្ញើសារមកយើង ហើយយើងនឹងឆ្លើយតបឱ្យបានឆាប់តាមដែលអាចធ្វើទៅបាន។",
+
+        formTitle: "ផ្ញើសារមកយើង",
+        formSubtitle: "បំពេញទម្រង់ខាងក្រោម ហើយយើងនឹងឆ្លើយតបក្នុងរយៈពេល 1–2 ថ្ងៃធ្វើការ។",
+
+        labelName: "ឈ្មោះរបស់អ្នក",
+        labelEmail: "អាសយដ្ឋានអ៊ីមែល",
+        labelSubject: "ចំណងជើង",
+        labelMessage: "សារ",
+
+        phName: "ឧ. Alex Chen",
+        phEmail: "you@example.com",
+        phMessage: "ប្រាប់យើងពីអ្វីដែលអ្នកចង់និយាយ...",
+
+        optChoose: "— សូមជ្រើសរើស —",
+        optGeneral: "សំណួរទូទៅ",
+        optSuggest: "ណែនាំភោជនីយដ្ឋាន",
+        optFeedback: "មតិយោបល់លើគេហទំព័រ",
+        optPartnership: "ដៃគូ / អាជីវកម្ម",
+        optOther: "ផ្សេងទៀត",
+
+        btnSend: "ផ្ញើសារ",
+
+        msgSuccess: "សូមអរគុណ! សាររបស់អ្នកត្រូវបានផ្ញើរួចរាល់។ យើងនឹងឆ្លើយតបក្នុងរយៈពេល 1–2 ថ្ងៃធ្វើការ។",
+        msgError: "សូមបំពេញគ្រប់វាលដែលត្រូវការ ដោយព័ត៌មានត្រឹមត្រូវ។",
+
+        detailsTitle: "ព័ត៌មានទំនាក់ទំនង",
+        detailEmailLabel: "អ៊ីមែល",
+        detailPhoneLabel: "ទូរស័ព្ទ / WhatsApp",
+        detailAddressLabel: "ទីតាំង",
+        detailAddress: "សៀមរាប កម្ពុជា",
+        detailHoursLabel: "ពេលវេលាឆ្លើយតប",
+        detailHours: "ក្នុងរយៈពេល 1–2 ថ្ងៃធ្វើការ",
+
+        mapLabel: "សៀមរាប កម្ពុជា",
+        mapSub: "បម្រើអ្នកទេសចរទូទាំងតំបន់អង្គរ",
+
+        socialTitle: "តាមដានយើង",
+        socialText: "ទទួលបានព័ត៌មានថ្មីៗអំពីភោជនីយដ្ឋាន និងគន្លឹះធ្វើដំណើរ។",
+
+        faqTeaserTitle: "ចង់បានចម្លើយរហ័ស?",
+        faqTeaserText: "ពិនិត្យទំព័រសំណួរញឹកញាប់របស់យើង — សំណួរទូទៅបំផុតអំពីអាហារ តម្លៃ សុវត្ថិភាព និងការធ្វើដំណើរត្រូវបានឆ្លើយរួចហើយនៅទីនោះ។",
+        faqTeaserLink: "មើលសំណួរញឹកញាប់",
+
+        footerDescription: "មគ្គុទេសក៍របស់អ្នកទៅកាន់ភោជនីយដ្ឋានល្អៗ បទពិសោធន៍ពិត និងគន្លឹះធ្វើដំណើរនៅសៀមរាប។",
+        exploreFooter: "ស្វែងរក",
+        informationFooter: "ព័ត៌មាន",
+        supportFooter: "ជំនួយ",
+        travelTips: "គន្លឹះធ្វើដំណើរ",
+        heritage: "បេតិកភណ្ឌ",
+        travelGuide: "មគ្គុទេសក៍ធ្វើដំណើរ",
+        aboutSiemReap: "អំពីសៀមរាប",
+        faq: "សំណួរដែលសួរញឹកញាប់",
+        contactUs: "ទាក់ទងយើង",
+        privacy: "គោលការណ៍ឯកជនភាព",
+        terms: "លក្ខខណ្ឌប្រើប្រាស់",
+        copyright: "© 2026 Taste Siem Reap។ រក្សាសិទ្ធិគ្រប់យ៉ាង។"
+      },
+
+      zh: {
+        navHome: "首页",
+        navRestaurants: "餐厅",
+        navExperience: "体验",
+        navAbout: "关于我们",
+
+        contactEyebrow: "我们期待您的来信",
+        contactTitle1: "联系",
+        contactTitle2: "我们",
+        contactIntro: "有疑问、建议，或想推荐餐厅？给我们留言，我们会尽快回复您。",
+
+        formTitle: "给我们留言",
+        formSubtitle: "填写下方表单，我们将在1–2个工作日内回复您。",
+
+        labelName: "您的姓名",
+        labelEmail: "电子邮箱",
+        labelSubject: "主题",
+        labelMessage: "留言内容",
+
+        phName: "例如：陈明",
+        phEmail: "you@example.com",
+        phMessage: "告诉我们您的想法...",
+
+        optChoose: "— 请选择 —",
+        optGeneral: "一般问题",
+        optSuggest: "推荐餐厅",
+        optFeedback: "网站反馈",
+        optPartnership: "合作 / 商务",
+        optOther: "其他",
+
+        btnSend: "发送消息",
+
+        msgSuccess: "谢谢！您的消息已发送。我们将在1–2个工作日内回复。",
+        msgError: "请填写所有必填字段，并提供有效信息。",
+
+        detailsTitle: "联系方式",
+        detailEmailLabel: "电子邮箱",
+        detailPhoneLabel: "电话 / WhatsApp",
+        detailAddressLabel: "位置",
+        detailAddress: "柬埔寨 暹粒",
+        detailHoursLabel: "回复时间",
+        detailHours: "1–2个工作日内",
+
+        mapLabel: "柬埔寨 暹粒",
+        mapSub: "为吴哥地区的旅行者服务",
+
+        socialTitle: "关注我们",
+        socialText: "获取最新餐厅发现和旅行贴士。",
+
+        faqTeaserTitle: "想要快速答案？",
+        faqTeaserText: "查看我们的常见问题页面——关于美食、价格、安全和旅行的常见问题都已在那里解答。",
+        faqTeaserLink: "访问常见问题",
+
+        footerDescription: "你的暹粒旅行指南，带你发现最佳餐厅、真实体验和旅行贴士。",
+        exploreFooter: "探索",
+        informationFooter: "信息",
+        supportFooter: "支持",
+        travelTips: "旅行贴士",
+        heritage: "文化遗产",
+        travelGuide: "旅行指南",
+        aboutSiemReap: "关于暹粒",
+        faq: "常见问题",
+        contactUs: "联系我们",
+        privacy: "隐私政策",
+        terms: "使用条款",
+        copyright: "© 2026 Taste Siem Reap。版权所有。"
+      }
+    };
+
+    // ----- state -----
+    let currentLanguage =
+      localStorage.getItem("selectedLanguage") ||
+      localStorage.getItem("tasteSiemReapLanguage") ||
+      "en";
+
+    // ----- translate function -----
+    function translatePage(lang) {
+      const dict = translations[lang];
+      if (!dict) return;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (!dict[key]) return;
+        el.textContent = dict[key];
+      });
+
+      // placeholder translations
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.dataset.i18nPlaceholder;
+        if (!dict[key]) return;
+        el.setAttribute('placeholder', dict[key]);
+      });
+
+      document.documentElement.lang = lang;
+
+      const spanCurrent = document.getElementById('currentLanguage');
+      if (spanCurrent) {
+        if (lang === 'en') spanCurrent.textContent = 'EN';
+        else if (lang === 'km') spanCurrent.textContent = 'ខ្មែរ';
+        else if (lang === 'zh') spanCurrent.textContent = '中文';
+      }
+
+      document.querySelectorAll('.language-option').forEach(opt => {
+        opt.classList.toggle('active', opt.dataset.language === lang);
+      });
+
+      currentLanguage = lang;
+      localStorage.setItem('selectedLanguage', lang);
+      localStorage.setItem('tasteSiemReapLanguage', lang);
+    }
+
+    // ----- language dropdown -----
+    const langBtn = document.getElementById('languageButton');
+    const langMenu = document.getElementById('languageMenu');
+
+    langBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      langMenu.classList.toggle('show');
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.language-wrapper')) {
+        langMenu.classList.remove('show');
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') langMenu.classList.remove('show');
+    });
+
+    document.querySelectorAll('.language-option').forEach(opt => {
+      opt.addEventListener('click', function() {
+        translatePage(this.dataset.language);
+        langMenu.classList.remove('show');
+      });
+    });
+
+    // ----- mobile hamburger -----
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+
+    hamburger.addEventListener('click', function() {
+      this.classList.toggle('active');
+      mobileNav.classList.toggle('open');
+      document.body.style.overflow =
+        mobileNav.classList.contains('open') ? 'hidden' : '';
+    });
+
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function() {
+        hamburger.classList.remove('active');
+        mobileNav.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        hamburger.classList.remove('active');
+        mobileNav.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // ----- contact form -----
+    const form = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const subject = form.subject.value;
+      const message = form.message.value.trim();
+
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+      const dict = translations[currentLanguage];
+      formMessage.className = 'form-message';
+
+      if (!name || !email || !subject || !message || !emailOk) {
+        formMessage.classList.add('error');
+        formMessage.textContent = dict.msgError || 'Please fill in all required fields.';
+        return;
+      }
+
+      // Simulate sending — replace with real backend (Formspree, EmailJS, etc.)
+      formMessage.classList.add('success');
+      formMessage.textContent = dict.msgSuccess || 'Thank you! Your message has been sent.';
+
+      form.reset();
+
+      // Hide after 8 seconds
+      setTimeout(() => {
+        formMessage.className = 'form-message';
+      }, 8000);
+    });
+
+    // ----- init -----
+    translatePage(currentLanguage);
+
+    // ----- vh fix -----
+    document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+        document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
+      }, 100);
+    });
+  })();
+</script>
+</body>
+</html>
