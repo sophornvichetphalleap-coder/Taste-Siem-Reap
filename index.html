@@ -1,0 +1,2954 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Taste Siem Reap | Discover Local Restaurants</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* =====================================================
+           BRIGHTER COLOR THEME
+        ===================================================== */
+
+        :root {
+            --bg: #18231c;
+            --bg-soft: #202d24;
+            --card: #253329;
+            --card-hover: #2d3d31;
+
+            --green-dark: #132019;
+            --green-light: #38513f;
+
+            --gold: #dfb866;
+            --gold-light: #f5d995;
+
+            --text: #faf8f0;
+            --muted: #c0c8bf;
+
+            --border: rgba(235, 240, 230, .14);
+
+            --shadow: 0 20px 50px rgba(0, 0, 0, .28);
+
+            /* Responsive variables */
+            --header-height: 70px;
+            --container-padding: 20px;
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+
+        body {
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(82, 120, 87, .25),
+                    transparent 38%
+                ),
+                linear-gradient(
+                    180deg,
+                    #1c2921 0%,
+                    #18231c 45%,
+                    #151f19 100%
+                );
+
+            color: var(--text);
+
+            font-family: "DM Sans", sans-serif;
+
+            line-height: 1.6;
+
+            min-height: 100vh;
+
+            overflow-x: hidden;
+        }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+
+        /* =====================================================
+           HEADER - FULLY RESPONSIVE
+        ===================================================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(25, 38, 29, .94);
+
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+
+            border-bottom: 1px solid var(--border);
+
+            height: var(--header-height);
+
+            transition: height 0.3s ease;
+        }
+
+
+        .navbar {
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            height: 100%;
+
+            padding: 0 var(--container-padding);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 10px;
+        }
+
+
+        .logo {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(20px, 2.5vw, 26px);
+
+            font-weight: 700;
+
+            letter-spacing: .3px;
+
+            flex-shrink: 0;
+        }
+
+
+        .logo span {
+            color: var(--gold);
+        }
+
+
+        /* ----- DESKTOP NAV ----- */
+
+        .nav-links {
+            display: flex;
+
+            align-items: center;
+
+            gap: clamp(15px, 2vw, 30px);
+
+            list-style: none;
+        }
+
+
+        .nav-links a {
+            color: #e1e6df;
+
+            font-size: clamp(12px, 1vw, 14px);
+
+            font-weight: 500;
+
+            transition: .25s ease;
+
+            position: relative;
+
+            padding: 5px 0;
+
+            white-space: nowrap;
+        }
+
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--gold-light);
+        }
+
+
+        .nav-links a.active::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            right: 0;
+
+            bottom: -4px;
+
+            height: 2px;
+
+            background: var(--gold);
+
+            border-radius: 10px;
+        }
+
+
+        /* ----- HEADER ACTIONS ----- */
+
+        .nav-actions {
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            flex-shrink: 0;
+        }
+
+
+        .nav-action {
+            width: 36px;
+            height: 36px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 50%;
+
+            display: grid;
+            place-items: center;
+
+            color: var(--muted);
+
+            background: transparent;
+
+            cursor: pointer;
+
+            transition: .25s ease;
+
+            font-size: 14px;
+        }
+
+
+        .nav-action:hover {
+            border-color: var(--gold);
+            color: var(--gold-light);
+            background: rgba(223, 184, 102, .08);
+        }
+
+
+        /* ----- LANGUAGE BUTTON ----- */
+
+        .language-wrapper {
+            position: relative;
+        }
+
+
+        .language-btn {
+            width: 36px;
+            height: 36px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 50%;
+
+            display: grid;
+            place-items: center;
+
+            color: var(--muted);
+
+            background: transparent;
+
+            cursor: pointer;
+
+            transition: .25s ease;
+
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+
+        .language-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold-light);
+            background: rgba(223, 184, 102, .08);
+        }
+
+
+        .language-menu {
+            position: absolute;
+
+            right: 0;
+            top: calc(100% + 10px);
+
+            min-width: 145px;
+
+            padding: 7px;
+
+            background: #26372c;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            box-shadow: var(--shadow);
+
+            display: none;
+
+            z-index: 100;
+        }
+
+
+        .language-menu.show {
+            display: block;
+        }
+
+
+        .language-option {
+            width: 100%;
+
+            border: none;
+
+            background: transparent;
+
+            color: var(--muted);
+
+            padding: 10px 11px;
+
+            border-radius: 10px;
+
+            text-align: left;
+
+            cursor: pointer;
+
+            font-size: 13px;
+
+            transition: .2s ease;
+        }
+
+
+        .language-option:hover,
+        .language-option.active {
+            background: rgba(223, 184, 102, .15);
+
+            color: var(--gold-light);
+        }
+
+
+        /* ----- MOBILE HAMBURGER ----- */
+
+        .hamburger {
+            display: none;
+
+            flex-direction: column;
+
+            gap: 5px;
+
+            padding: 8px;
+
+            cursor: pointer;
+
+            background: transparent;
+
+            border: none;
+        }
+
+
+        .hamburger span {
+            display: block;
+
+            width: 26px;
+
+            height: 2px;
+
+            background: var(--text);
+
+            border-radius: 2px;
+
+            transition: .3s ease;
+        }
+
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+
+        /* ----- MOBILE NAV OVERLAY ----- */
+
+        .mobile-nav-overlay {
+            display: none;
+
+            position: fixed;
+
+            top: var(--header-height);
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            background: rgba(18, 35, 22, .97);
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            z-index: 999;
+
+            padding: 30px var(--container-padding);
+
+            overflow-y: auto;
+        }
+
+
+        .mobile-nav-overlay.open {
+            display: block;
+        }
+
+
+        .mobile-nav-links {
+            list-style: none;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+        }
+
+
+        .mobile-nav-links a {
+            display: block;
+
+            padding: 16px 20px;
+
+            color: var(--text);
+
+            font-size: 18px;
+
+            font-weight: 500;
+
+            border-radius: 12px;
+
+            transition: .25s ease;
+
+            text-align: center;
+        }
+
+
+        .mobile-nav-links a:hover,
+        .mobile-nav-links a.active {
+            background: rgba(223, 184, 102, .15);
+
+            color: var(--gold-light);
+        }
+
+
+        /* =====================================================
+           HERO - FULLY RESPONSIVE
+        ===================================================== */
+
+        .hero {
+            position: relative;
+
+            max-width: 1200px;
+
+            min-height: clamp(400px, 60vh, 610px);
+
+            margin: 0 auto;
+
+            padding: clamp(40px, 6vh, 90px) var(--container-padding) clamp(30px, 4vh, 80px);
+
+            display: flex;
+
+            align-items: center;
+
+            overflow: hidden;
+        }
+
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            top: clamp(12px, 2vh, 40px);
+            left: var(--container-padding);
+            right: var(--container-padding);
+            bottom: clamp(12px, 2vh, 40px);
+
+            border-radius: clamp(14px, 2vw, 28px);
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(17, 35, 24, .91) 0%,
+                    rgba(23, 48, 31, .75) 38%,
+                    rgba(25, 49, 32, .40) 70%,
+                    rgba(25, 49, 32, .22) 100%
+                ),
+                url("bg3.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            opacity: .98;
+
+            z-index: -2;
+        }
+
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            top: clamp(12px, 2vh, 40px);
+            left: var(--container-padding);
+            right: var(--container-padding);
+            bottom: clamp(12px, 2vh, 40px);
+
+            border-radius: clamp(14px, 2vw, 28px);
+
+            border: 1px solid rgba(223, 184, 102, .20);
+
+            box-shadow:
+                inset 0 0 80px rgba(4, 12, 7, .20);
+
+            z-index: -1;
+        }
+
+
+        .hero-content {
+            max-width: 680px;
+
+            padding: 0 clamp(5px, 2vw, 45px);
+
+            width: 100%;
+        }
+
+
+        .eyebrow {
+            color: var(--gold);
+
+            text-transform: uppercase;
+
+            letter-spacing: clamp(2px, 0.3vw, 3px);
+
+            font-size: clamp(10px, 0.9vw, 12px);
+
+            font-weight: 700;
+
+            margin-bottom: clamp(12px, 1.5vh, 18px);
+        }
+
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(30px, 6vw, 76px);
+
+            line-height: 1.05;
+
+            font-weight: 600;
+        }
+
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+
+        .hero-line {
+            width: clamp(35px, 4vw, 55px);
+
+            height: 2px;
+
+            background: var(--gold);
+
+            margin: clamp(14px, 2vh, 25px) 0;
+        }
+
+
+        .hero p {
+            max-width: 570px;
+
+            color: #d0d7cf;
+
+            font-size: clamp(13px, 1.1vw, 16px);
+
+            line-height: 1.7;
+        }
+
+
+        .hero-actions {
+            display: flex;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: clamp(10px, 1.5vw, 14px);
+
+            margin-top: clamp(18px, 3vh, 30px);
+        }
+
+
+        .primary-btn {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: clamp(10px, 1.2vw, 12px) clamp(14px, 1.8vw, 18px);
+
+            border: 1px solid var(--gold);
+
+            background: var(--gold);
+
+            color: #17140e;
+
+            border-radius: 999px;
+
+            font-size: clamp(12px, 1vw, 13px);
+
+            font-weight: 700;
+
+            transition: .25s ease;
+
+            white-space: nowrap;
+        }
+
+
+        .primary-btn:hover {
+            background: var(--gold-light);
+
+            border-color: var(--gold-light);
+
+            transform: translateY(-2px);
+        }
+
+
+        .secondary-btn {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: clamp(10px, 1.2vw, 12px) clamp(14px, 1.8vw, 18px);
+
+            border: 1px solid rgba(223, 184, 102, .40);
+
+            background: rgba(18, 36, 24, .62);
+
+            color: var(--text);
+
+            border-radius: 999px;
+
+            font-size: clamp(12px, 1vw, 13px);
+
+            transition: .25s ease;
+
+            white-space: nowrap;
+        }
+
+
+        .secondary-btn:hover {
+            border-color: var(--gold);
+
+            color: var(--gold-light);
+
+            background: rgba(30, 54, 37, .85);
+        }
+
+
+        /* ----- HERO RATING (Desktop only) ----- */
+
+        .hero-rating {
+            position: absolute;
+
+            right: clamp(15px, 3vw, 55px);
+
+            bottom: clamp(40px, 6vh, 85px);
+
+            width: clamp(160px, 15vw, 210px);
+
+            padding: clamp(16px, 1.8vw, 23px);
+
+            border-radius: clamp(14px, 1.5vw, 18px);
+
+            background: rgba(35, 54, 42, .88);
+
+            border: 1px solid rgba(223, 184, 102, .20);
+
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+
+            box-shadow: var(--shadow);
+
+            display: block;
+        }
+
+
+        .hero-rating h3 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(22px, 2.2vw, 30px);
+
+            margin-bottom: 2px;
+        }
+
+
+        .hero-rating p {
+            color: var(--muted);
+
+            font-size: clamp(10px, 0.8vw, 12px);
+        }
+
+
+        .rating-line {
+            height: 1px;
+
+            background: var(--border);
+
+            margin: clamp(10px, 1.2vw, 16px) 0;
+        }
+
+
+        .rating-score {
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+        }
+
+
+        .rating-score strong {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(20px, 2vw, 27px);
+        }
+
+
+        .stars {
+            color: var(--gold);
+
+            font-size: clamp(11px, 1vw, 13px);
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =====================================================
+           FEATURE BAR - FULLY RESPONSIVE
+        ===================================================== */
+
+        .feature-wrapper {
+            max-width: 1200px;
+
+            margin: clamp(-5px, -0.5vh, -10px) auto 0;
+
+            padding: 0 var(--container-padding);
+
+            position: relative;
+
+            z-index: 5;
+        }
+
+
+        .features {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            background: #25362b;
+
+            border: 1px solid rgba(223, 184, 102, .18);
+
+            border-radius: clamp(12px, 1.5vw, 20px);
+
+            overflow: hidden;
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .feature {
+            padding: clamp(14px, 2vw, 25px) clamp(12px, 1.8vw, 22px);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: clamp(10px, 1.2vw, 14px);
+
+            border-right: 1px solid var(--border);
+
+            transition: .25s ease;
+        }
+
+
+        .feature:last-child {
+            border-right: none;
+        }
+
+
+        .feature:hover {
+            background: #2d4033;
+        }
+
+
+        .feature-icon {
+            min-width: clamp(34px, 4vw, 47px);
+
+            height: clamp(34px, 4vw, 47px);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border: 1px solid rgba(223, 184, 102, .70);
+
+            border-radius: 50%;
+
+            color: var(--gold);
+
+            font-size: clamp(14px, 1.6vw, 19px);
+
+            background: rgba(223, 184, 102, .06);
+
+            flex-shrink: 0;
+        }
+
+
+        .feature h3 {
+            font-size: clamp(11px, 1vw, 13px);
+
+            margin-bottom: 2px;
+        }
+
+
+        .feature p {
+            color: var(--muted);
+
+            font-size: clamp(9px, 0.8vw, 11px);
+
+            line-height: 1.5;
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        main {
+            max-width: 1200px;
+
+            margin: clamp(40px, 6vh, 90px) auto 0;
+
+            padding: 0 var(--container-padding);
+        }
+
+
+        .section-label {
+            color: var(--gold);
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            font-size: clamp(10px, 0.8vw, 11px);
+
+            font-weight: 700;
+
+            margin-bottom: 9px;
+        }
+
+
+        .section-label::after {
+            content: " ───";
+        }
+
+
+        .section-header {
+            display: flex;
+
+            align-items: flex-end;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-bottom: clamp(18px, 3vh, 28px);
+
+            flex-wrap: wrap;
+        }
+
+
+        .section-header h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(24px, 3.5vw, 36px);
+
+            font-weight: 600;
+
+            line-height: 1.15;
+        }
+
+
+        /* =====================================================
+           EXPLORE - FULLY RESPONSIVE
+        ===================================================== */
+
+        .explore {
+            margin-top: 0;
+        }
+
+
+        .explore-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: clamp(14px, 1.8vw, 20px);
+        }
+
+
+        .explore-card {
+            height: clamp(200px, 35vh, 285px);
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: clamp(14px, 1.5vw, 20px);
+
+            border: 1px solid var(--border);
+
+            background: var(--card);
+
+            box-shadow: 0 12px 30px rgba(0, 0, 0, .18);
+        }
+
+
+        .explore-card img {
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform .5s ease;
+        }
+
+
+        .explore-card:hover img {
+            transform: scale(1.06);
+        }
+
+
+        .explore-overlay {
+            position: absolute;
+
+            inset: 0;
+
+            padding: clamp(14px, 2vw, 24px);
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: flex-end;
+
+            background:
+                linear-gradient(
+                    transparent 15%,
+                    rgba(11, 28, 18, .88) 100%
+                );
+        }
+
+
+        .explore-icon {
+            width: clamp(34px, 3.5vw, 43px);
+
+            height: clamp(34px, 3.5vw, 43px);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            border: 1px solid var(--gold);
+
+            color: var(--gold);
+
+            background: rgba(12, 29, 18, .55);
+
+            margin-bottom: clamp(8px, 1vh, 12px);
+
+            font-size: clamp(13px, 1.3vw, 18px);
+        }
+
+
+        .explore-overlay h3 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(17px, 2.2vw, 25px);
+
+            margin-bottom: 4px;
+        }
+
+
+        .explore-overlay p {
+            max-width: 280px;
+
+            color: #d1d8d1;
+
+            font-size: clamp(10px, 0.9vw, 12px);
+
+            margin-bottom: clamp(6px, 1vh, 12px);
+        }
+
+
+        .explore-link {
+            color: var(--gold-light);
+
+            font-size: clamp(10px, 0.9vw, 12px);
+
+            font-weight: 600;
+        }
+
+
+        /* =====================================================
+           EXPERIENCE - FULLY RESPONSIVE
+        ===================================================== */
+
+        .experience {
+            margin-top: clamp(40px, 6vh, 100px);
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: clamp(14px, 1.8vw, 20px);
+        }
+
+
+        .experience-box {
+            padding: clamp(20px, 3vw, 38px);
+
+            border: 1px solid var(--border);
+
+            border-radius: clamp(14px, 1.5vw, 20px);
+
+            background:
+                linear-gradient(
+                    120deg,
+                    rgba(223, 184, 102, .10),
+                    transparent 60%
+                ),
+                #25352b;
+
+            transition: .3s ease;
+        }
+
+
+        .experience-box:hover {
+            border-color: rgba(223, 184, 102, .40);
+
+            background:
+                linear-gradient(
+                    120deg,
+                    rgba(223, 184, 102, .14),
+                    transparent 60%
+                ),
+                #2b3d31;
+        }
+
+
+        .experience-box h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(24px, 3.2vw, 34px);
+
+            margin-bottom: 12px;
+        }
+
+
+        .experience-box p {
+            max-width: 550px;
+
+            color: var(--muted);
+
+            font-size: clamp(12px, 1vw, 14px);
+
+            margin-bottom: 23px;
+        }
+
+
+        .review-button {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: clamp(8px, 1vw, 10px) clamp(12px, 1.5vw, 16px);
+
+            border: 1px solid var(--gold);
+
+            color: var(--gold-light);
+
+            border-radius: 999px;
+
+            font-size: clamp(11px, 0.9vw, 12px);
+
+            transition: .25s ease;
+        }
+
+
+        .review-button:hover {
+            background: var(--gold);
+
+            color: #17140e;
+        }
+
+
+        /* =====================================================
+           FOOTER - FULLY RESPONSIVE
+        ===================================================== */
+
+        footer {
+            margin-top: clamp(50px, 8vh, 110px);
+
+            padding: clamp(30px, 4vh, 55px) var(--container-padding) clamp(18px, 3vh, 25px);
+
+            background: #111b15;
+
+            border-top: 1px solid var(--border);
+        }
+
+
+        .footer-grid {
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+
+            gap: clamp(20px, 4vw, 45px);
+        }
+
+
+        .footer-brand h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(20px, 2.2vw, 25px);
+
+            margin-bottom: 10px;
+        }
+
+
+        .footer-brand h2 span {
+            color: var(--gold);
+        }
+
+
+        .footer-brand p {
+            max-width: 350px;
+
+            color: var(--muted);
+
+            font-size: clamp(11px, 1vw, 13px);
+        }
+
+
+        .socials {
+            display: flex;
+
+            gap: 9px;
+
+            margin-top: 20px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .social {
+            width: clamp(30px, 3vw, 35px);
+
+            height: clamp(30px, 3vw, 35px);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border: 1px solid var(--border);
+
+            border-radius: 50%;
+
+            color: var(--muted);
+
+            font-size: clamp(11px, 1vw, 13px);
+
+            transition: .25s ease;
+        }
+
+
+        .social:hover {
+            color: var(--gold-light);
+
+            border-color: var(--gold);
+        }
+
+
+        .footer-column h3 {
+            color: var(--gold);
+
+            font-size: clamp(10px, 0.9vw, 12px);
+
+            letter-spacing: 1px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .footer-column a {
+            display: block;
+
+            color: var(--muted);
+
+            font-size: clamp(11px, 0.9vw, 12px);
+
+            margin-bottom: 9px;
+
+            transition: .25s ease;
+        }
+
+
+        .footer-column a:hover {
+            color: var(--gold-light);
+        }
+
+
+        .copyright {
+            max-width: 1200px;
+
+            margin: clamp(20px, 3vh, 40px) auto 0;
+
+            padding-top: clamp(14px, 2vh, 20px);
+
+            border-top: 1px solid var(--border);
+
+            color: #849087;
+
+            font-size: clamp(10px, 0.8vw, 11px);
+
+            text-align: center;
+        }
+
+
+        /* =====================================================
+           TABLET (768px - 1024px)
+        ===================================================== */
+
+        @media (max-width: 1024px) {
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .feature:nth-child(2) {
+                border-right: none;
+            }
+
+            .feature:nth-child(-n+2) {
+                border-bottom: 1px solid var(--border);
+            }
+
+            .hero-rating {
+                right: clamp(10px, 2vw, 30px);
+                bottom: clamp(30px, 4vh, 50px);
+            }
+
+            .explore-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE (up to 768px)
+        ===================================================== */
+
+        @media (max-width: 768px) {
+
+            :root {
+                --header-height: 64px;
+                --container-padding: 16px;
+            }
+
+            /* Hide desktop nav, show hamburger */
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-action {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
+
+            .language-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 10px;
+            }
+
+            .hero {
+                min-height: clamp(340px, 70vh, 480px);
+                padding: clamp(30px, 4vh, 50px) var(--container-padding) clamp(20px, 3vh, 35px);
+            }
+
+            .hero::before,
+            .hero::after {
+                top: clamp(8px, 1.5vh, 15px);
+                left: var(--container-padding);
+                right: var(--container-padding);
+                bottom: clamp(8px, 1.5vh, 15px);
+                border-radius: clamp(10px, 2vw, 16px);
+            }
+
+            .hero-content {
+                padding: 0 5px;
+            }
+
+            .hero h1 {
+                font-size: clamp(28px, 7vw, 42px);
+            }
+
+            .hero p {
+                font-size: 13px;
+            }
+
+            .hero-rating {
+                display: none;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            .primary-btn,
+            .secondary-btn {
+                width: 100%;
+                justify-content: center;
+                white-space: normal;
+                text-align: center;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                border-radius: clamp(10px, 2vw, 14px);
+            }
+
+            .feature {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                padding: clamp(12px, 2.5vw, 16px);
+            }
+
+            .feature:last-child {
+                border-bottom: none;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .section-header h2 {
+                font-size: clamp(22px, 5vw, 28px);
+            }
+
+            .explore-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .explore-card {
+                height: clamp(180px, 35vh, 220px);
+            }
+
+            .experience {
+                grid-template-columns: 1fr;
+                gap: 14px;
+                margin-top: clamp(30px, 4vh, 50px);
+            }
+
+            .experience-box {
+                padding: clamp(16px, 3vw, 22px);
+            }
+
+            .experience-box h2 {
+                font-size: clamp(20px, 4.5vw, 26px);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .footer-brand p {
+                max-width: 100%;
+            }
+
+            .mobile-nav-overlay {
+                padding: 20px var(--container-padding) 40px;
+            }
+
+            .mobile-nav-links a {
+                font-size: 16px;
+                padding: 14px 16px;
+            }
+        }
+
+
+        /* =====================================================
+           SMALL PHONES (up to 480px)
+        ===================================================== */
+
+        @media (max-width: 480px) {
+
+            :root {
+                --header-height: 58px;
+                --container-padding: 14px;
+            }
+
+            .logo {
+                font-size: clamp(17px, 4.5vw, 20px);
+            }
+
+            .nav-action {
+                width: 28px;
+                height: 28px;
+                font-size: 11px;
+            }
+
+            .language-btn {
+                width: 28px;
+                height: 28px;
+                font-size: 9px;
+            }
+
+            .hamburger span {
+                width: 22px;
+                height: 2px;
+            }
+
+            .hero {
+                min-height: clamp(300px, 75vh, 400px);
+                padding: clamp(20px, 3vh, 35px) var(--container-padding) clamp(15px, 2vh, 25px);
+            }
+
+            .hero h1 {
+                font-size: clamp(24px, 7.5vw, 34px);
+            }
+
+            .hero p {
+                font-size: 12px;
+            }
+
+            .eyebrow {
+                font-size: 9px;
+                letter-spacing: 2px;
+            }
+
+            .hero-line {
+                width: 30px;
+                margin: 10px 0;
+            }
+
+            .primary-btn,
+            .secondary-btn {
+                font-size: 11px;
+                padding: 8px 14px;
+            }
+
+            .feature-icon {
+                min-width: 30px;
+                height: 30px;
+                font-size: 13px;
+            }
+
+            .feature h3 {
+                font-size: 11px;
+            }
+
+            .feature p {
+                font-size: 9px;
+            }
+
+            .explore-overlay h3 {
+                font-size: 16px;
+            }
+
+            .explore-overlay p {
+                font-size: 10px;
+            }
+
+            .experience-box h2 {
+                font-size: 20px;
+            }
+
+            .review-button {
+                font-size: 10px;
+                padding: 6px 12px;
+            }
+
+            .section-header h2 {
+                font-size: 22px;
+            }
+
+            .language-menu {
+                min-width: 130px;
+                right: -10px;
+            }
+
+            .language-option {
+                font-size: 12px;
+                padding: 8px 10px;
+            }
+
+            .mobile-nav-links a {
+                font-size: 14px;
+                padding: 12px 14px;
+            }
+
+            .footer-column a {
+                font-size: 11px;
+            }
+        }
+
+
+        /* =====================================================
+           LANDSCAPE PHONES
+        ===================================================== */
+
+        @media (max-width: 768px) and (orientation: landscape) {
+
+            .hero {
+                min-height: clamp(280px, 80vh, 380px);
+                padding: clamp(15px, 3vh, 30px) var(--container-padding);
+            }
+
+            .hero h1 {
+                font-size: clamp(22px, 5vw, 32px);
+            }
+
+            .hero-rating {
+                display: none;
+            }
+
+            .explore-card {
+                height: clamp(150px, 35vh, 190px);
+            }
+
+            .mobile-nav-overlay {
+                padding: 12px var(--container-padding);
+            }
+
+            .mobile-nav-links a {
+                padding: 10px 14px;
+                font-size: 14px;
+            }
+        }
+
+
+        /* =====================================================
+           TABLET PORTRAIT (768px - 900px)
+        ===================================================== */
+
+        @media (min-width: 768px) and (max-width: 900px) and (orientation: portrait) {
+
+            .hero-rating {
+                display: none;
+            }
+
+            .hero {
+                min-height: clamp(350px, 50vh, 420px);
+            }
+
+            .hero h1 {
+                font-size: clamp(32px, 5.5vw, 42px);
+            }
+        }
+
+
+        /* =====================================================
+           IPAD PRO (1024px - 1366px)
+        ===================================================== */
+
+        @media (min-width: 1024px) and (max-width: 1366px) {
+
+            .hero-rating {
+                right: clamp(15px, 2.5vw, 35px);
+                bottom: clamp(40px, 5vh, 60px);
+                width: clamp(150px, 13vw, 180px);
+            }
+
+            .hero h1 {
+                font-size: clamp(38px, 5vw, 52px);
+            }
+
+            .explore-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+
+        /* =====================================================
+           UTILITY
+        ===================================================== */
+
+        .hidden {
+            display: none !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .w-full {
+            width: 100%;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                Taste <span>Siem Reap</span>
+            </a>
+
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html"
+                       class="active"
+                       data-i18n="navHome">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="res.html"
+                       data-i18n="navRestaurants">
+                        Restaurants
+                    </a>
+                </li>
+
+                <li>
+                    <a href="experience.html"
+                       data-i18n="navExperience">
+                        Experience
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Aboutus.html"
+                       data-i18n="navAbout">
+                        About Us
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <div class="nav-actions">
+
+                <button
+                    class="nav-action"
+                    type="button"
+                    aria-label="Favorites"
+                    title="Favorites"
+                >
+                    ♡
+                </button>
+
+                <div class="language-wrapper" id="languageWrapper">
+
+                    <button
+                        class="language-btn"
+                        id="languageButton"
+                        type="button"
+                        aria-label="Language"
+                    >
+                        <span id="currentLanguage">EN</span>
+                    </button>
+
+
+                    <div class="language-menu" id="languageMenu">
+
+                        <button
+                            class="language-option active"
+                            data-language="en">
+                            🇬🇧 English
+                        </button>
+
+                        <button
+                            class="language-option"
+                            data-language="zh">
+                            🇨🇳 中文
+                        </button>
+
+                        <button
+                            class="language-option"
+                            data-language="km">
+                            🇰🇭 ខ្មែរ
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- HAMBURGER MENU -->
+
+                <button
+                    class="hamburger"
+                    id="hamburger"
+                    type="button"
+                    aria-label="Toggle menu"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+         MOBILE NAV OVERLAY
+    ===================================================== -->
+
+    <div class="mobile-nav-overlay" id="mobileNav">
+
+        <ul class="mobile-nav-links">
+
+            <li>
+                <a href="index.html"
+                   class="active"
+                   data-i18n="navHome">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="res.html"
+                   data-i18n="navRestaurants">
+                    Restaurants
+                </a>
+            </li>
+
+            <li>
+                <a href="experience.html"
+                   data-i18n="navExperience">
+                    Experience
+                </a>
+            </li>
+
+            <li>
+                <a href="Aboutus.html"
+                   data-i18n="navAbout">
+                    About Us
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="eyebrow" data-i18n="heroEyebrow">
+                Good food, good mood
+            </div>
+
+            <h1 data-i18n="heroTitle">
+                Eat Like a Local
+                <br>
+                in <span>Siem Reap</span>
+            </h1>
+
+            <div class="hero-line"></div>
+
+            <p data-i18n="heroText">
+                Your guide to the best restaurants,
+                authentic Cambodian food and unforgettable
+                local experiences in Siem Reap.
+            </p>
+
+            <div class="hero-actions">
+
+                <a href="res.html"
+                   class="primary-btn"
+                   data-i18n="exploreRestaurants">
+                    Explore Restaurants →
+                </a>
+
+                <a href="experience.html"
+                   class="secondary-btn"
+                   data-i18n="discoverExperiences">
+                    Discover Experiences
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FEATURE BAR
+    ===================================================== -->
+
+    <div class="feature-wrapper">
+
+        <div class="features">
+
+            <a href="res.html" class="feature">
+
+                <div class="feature-icon">
+                    🍴
+                </div>
+
+                <div>
+
+                    <h3 data-i18n="topRestaurants">
+                        Top Restaurants
+                    </h3>
+
+                    <p data-i18n="topRestaurantsText">
+                        Handpicked places loved
+                        by locals and travelers.
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <a href="experience.html" class="feature">
+
+                <div class="feature-icon">
+                    ✦
+                </div>
+
+                <div>
+
+                    <h3 data-i18n="localExperiences">
+                        Local Experiences
+                    </h3>
+
+                    <p data-i18n="localExperiencesText">
+                        Discover unique things
+                        to do around Siem Reap.
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <a href="experience.html" class="feature">
+
+                <div class="feature-icon">
+                    ★
+                </div>
+
+                <div>
+
+                    <h3 data-i18n="realReviews">
+                        Real Reviews
+                    </h3>
+
+                    <p data-i18n="realReviewsText">
+                        Read stories and reviews
+                        from fellow travelers.
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <a href="tips.html" class="feature">
+
+                <div class="feature-icon">
+                    ?
+                </div>
+
+                <div>
+
+                    <h3 data-i18n="travelTips">
+                        Travel Tips
+                    </h3>
+
+                    <p data-i18n="travelTipsText">
+                        Helpful ideas for your
+                        Siem Reap adventure.
+                    </p>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ===================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             EXPLORE SIEM REAP
+        ================================================= -->
+
+        <section class="explore">
+
+            <div class="section-label"
+                 data-i18n="exploreSiemReap">
+                Explore Siem Reap
+            </div>
+
+            <div class="section-header">
+
+                <h2 data-i18n="moreThanFood">
+                    More Than Just Food
+                </h2>
+
+            </div>
+
+
+            <div class="explore-grid">
+
+
+                <a href="hari.html"
+                   class="explore-card">
+
+                    <img
+                        src="hari.jpg"
+                        alt="Angkor Wat">
+
+                    <div class="explore-overlay">
+
+                        <div class="explore-icon">
+                            ✦
+                        </div>
+
+                        <h3 data-i18n="heritageCulture">
+                            Heritage & Culture
+                        </h3>
+
+                        <p data-i18n="heritageText">
+                            Explore ancient temples,
+                            history and local culture.
+                        </p>
+
+
+
+                    </div>
+
+                </a>
+
+
+
+                <a href="experience.html"
+                   class="explore-card">
+
+                    <img
+                        src="local.jpg"
+                        alt="Local Experience">
+
+                    <div class="explore-overlay">
+
+                        <div class="explore-icon">
+                            ✧
+                        </div>
+
+                        <h3 data-i18n="localExperiences">
+                            Local Experiences
+                        </h3>
+
+                        <p data-i18n="experienceText">
+                            Join local activities and
+                            create unforgettable memories.
+                        </p>
+
+
+
+                    </div>
+
+                </a>
+
+
+
+                <a href="tip.html"
+                   class="explore-card">
+
+                    <img
+                        src="tip.jpg"
+                        alt="Siem Reap Sunset">
+
+                    <div class="explore-overlay">
+
+                        <div class="explore-icon">
+                            ☆
+                        </div>
+
+                        <h3 data-i18n="travelTips">
+                            Travel Tips
+                        </h3>
+
+                        <p data-i18n="tipsText">
+                            Everything you need to know
+                            before visiting Siem Reap.
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             EXPERIENCE
+        ================================================= -->
+
+        <section class="experience">
+
+
+            <div class="experience-box">
+
+                <div class="section-label"
+                     data-i18n="realExperiences">
+                    Real Experiences
+                </div>
+
+                <h2 data-i18n="seeLoveShare">
+                    See it. Love it. Share it.
+                </h2>
+
+                <p data-i18n="shareExperienceText">
+                    Discover what other travelers thought
+                    about their restaurants and experiences
+                    in Siem Reap. Then share your own story
+                    with the next traveler.
+                </p>
+
+                <a href="experience.html"
+                   class="review-button"
+                   data-i18n="shareExperience">
+                    Share Your Experience +
+                </a>
+
+            </div>
+
+
+
+            <div class="experience-box">
+
+                <div class="section-label"
+                     data-i18n="localPicks">
+                    Local Picks
+                </div>
+
+                <h2 data-i18n="travelSmarter">
+                    Travel smarter.
+                </h2>
+
+                <p data-i18n="travelSmarterText">
+                    Get useful local tips, restaurant
+                    recommendations and ideas for your
+                    Siem Reap adventure.
+                </p>
+
+                <a href="tip.html"
+                   class="review-button"
+                   data-i18n="exploreTips">
+                    Explore Tips →
+                </a>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+                <h2>
+                    Taste <span>Siem Reap</span>
+                </h2>
+
+                <p data-i18n="footerDescription">
+                    Your guide to the best restaurants,
+                    authentic experiences and travel tips
+                    in Siem Reap, Cambodia.
+                </p>
+
+                <div class="socials">
+
+                    <span class="social">f</span>
+                    <span class="social">◎</span>
+                    <span class="social">♪</span>
+                    <span class="social">▶</span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h3 data-i18n="exploreFooter">
+                    EXPLORE
+                </h3>
+
+                <a href="res.html"
+                   data-i18n="navRestaurants">
+                    Restaurants
+                </a>
+
+                <a href="experience.html"
+                   data-i18n="navExperience">
+                    Experience
+                </a>
+
+                <a href="tips.html"
+                   data-i18n="travelTips">
+                    Travel Tips
+                </a>
+
+                <a href="Aboutus.html"
+                   data-i18n="navAbout">
+                    About Us
+                </a>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h3 data-i18n="informationFooter">
+                    INFORMATION
+                </h3>
+
+                <a href="heritage.html"
+                   data-i18n="heritage">
+                    Heritage
+                </a>
+
+                <a href="tips.html"
+                   data-i18n="travelGuide">
+                    Travel Guide
+                </a>
+
+                <a href="Aboutus.html"
+                   data-i18n="aboutSiemReap">
+                    About Siem Reap
+                </a>
+
+                <a href="#"
+                   data-i18n="faq">
+                    FAQ
+                </a>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h3 data-i18n="supportFooter">
+                    SUPPORT
+                </h3>
+
+                <a href="#"
+                   data-i18n="contactUs">
+                    Contact Us
+                </a>
+
+                <a href="#"
+                   data-i18n="privacy">
+                    Privacy Policy
+                </a>
+
+                <a href="#"
+                   data-i18n="terms">
+                    Terms of Use
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright"
+             data-i18n="copyright">
+
+            © 2026 Taste Siem Reap. All rights reserved.
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         LANGUAGE JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+        const translations = {
+
+            en: {
+
+                navHome: "Home",
+                navRestaurants: "Restaurants",
+                navExperience: "Experience",
+                navAbout: "About Us",
+
+                heroEyebrow: "Good food, good mood",
+
+                heroTitle:
+                    'Eat Like a Local<br>in <span>Siem Reap</span>',
+
+                heroText:
+                    "Your guide to the best restaurants, authentic Cambodian food and unforgettable local experiences in Siem Reap.",
+
+                exploreRestaurants:
+                    "Explore Restaurants →",
+
+                discoverExperiences:
+                    "Discover Experiences",
+
+                happyTravelers:
+                    "Happy Travelers",
+
+                basedReviews:
+                    "Based on 600+ reviews",
+
+                topRestaurants:
+                    "Top Restaurants",
+
+                topRestaurantsText:
+                    "Handpicked places loved by locals and travelers.",
+
+                localExperiences:
+                    "Local Experiences",
+
+                localExperiencesText:
+                    "Discover unique things to do around Siem Reap.",
+
+                realReviews:
+                    "Real Reviews",
+
+                realReviewsText:
+                    "Read stories and reviews from fellow travelers.",
+
+                travelTips:
+                    "Travel Tips",
+
+                travelTipsText:
+                    "Helpful ideas for your Siem Reap adventure.",
+
+                exploreSiemReap:
+                    "Explore Siem Reap",
+
+                moreThanFood:
+                    "More Than Just Food",
+
+                heritageCulture:
+                    "Heritage & Culture",
+
+                heritageText:
+                    "Explore ancient temples, history and local culture.",
+
+                discoverMore:
+                    "Discover More →",
+
+                experienceText:
+                    "Join local activities and create unforgettable memories.",
+
+                seeExperiences:
+                    "See Experiences →",
+
+                tipsText:
+                    "Everything you need to know before visiting Siem Reap.",
+
+                readTips:
+                    "Read Tips →",
+
+                realExperiences:
+                    "Real Experiences",
+
+                seeLoveShare:
+                    "See it. Love it. Share it.",
+
+                shareExperienceText:
+                    "Discover what other travelers thought about their restaurants and experiences in Siem Reap. Then share your own story with the next traveler.",
+
+                shareExperience:
+                    "Share Your Experience +",
+
+                localPicks:
+                    "Local Picks",
+
+                travelSmarter:
+                    "Travel smarter.",
+
+                travelSmarterText:
+                    "Get useful local tips, restaurant recommendations and ideas for your Siem Reap adventure.",
+
+                exploreTips:
+                    "Explore Tips →",
+
+                footerDescription:
+                    "Your guide to the best restaurants, authentic experiences and travel tips in Siem Reap, Cambodia.",
+
+                exploreFooter:
+                    "EXPLORE",
+
+                informationFooter:
+                    "INFORMATION",
+
+                supportFooter:
+                    "SUPPORT",
+
+                heritage:
+                    "Heritage",
+
+                travelGuide:
+                    "Travel Guide",
+
+                aboutSiemReap:
+                    "About Siem Reap",
+
+                faq:
+                    "FAQ",
+
+                contactUs:
+                    "Contact Us",
+
+                privacy:
+                    "Privacy Policy",
+
+                terms:
+                    "Terms of Use",
+
+                copyright:
+                    "© 2026 Taste Siem Reap. All rights reserved."
+
+            },
+
+
+            zh: {
+
+                navHome: "首页",
+                navRestaurants: "餐厅",
+                navExperience: "体验",
+                navAbout: "关于我们",
+
+                heroEyebrow: "美食带来好心情",
+
+                heroTitle:
+                    '像当地人一样<br>品味<span>暹粒</span>',
+
+                heroText:
+                    "为你探索暹粒最好的餐厅、正宗柬埔寨美食以及难忘的当地体验。",
+
+                exploreRestaurants:
+                    "探索餐厅 →",
+
+                discoverExperiences:
+                    "探索体验",
+
+                happyTravelers:
+                    "快乐旅行者",
+
+                basedReviews:
+                    "基于600+条评价",
+
+                topRestaurants:
+                    "热门餐厅",
+
+                topRestaurantsText:
+                    "精选当地人和旅行者喜爱的餐厅。",
+
+                localExperiences:
+                    "当地体验",
+
+                localExperiencesText:
+                    "探索暹粒周边独特的活动。",
+
+                realReviews:
+                    "真实评价",
+
+                realReviewsText:
+                    "阅读其他旅行者分享的故事和评价。",
+
+                travelTips:
+                    "旅行贴士",
+
+                travelTipsText:
+                    "为你的暹粒之旅提供实用建议。",
+
+                exploreSiemReap:
+                    "探索暹粒",
+
+                moreThanFood:
+                    "不只是美食",
+
+                heritageCulture:
+                    "文化与遗产",
+
+                heritageText:
+                    "探索古老寺庙、历史和当地文化。",
+
+                discoverMore:
+                    "了解更多 →",
+
+                experienceText:
+                    "参加当地活动，创造难忘的旅行回忆。",
+
+                seeExperiences:
+                    "查看体验 →",
+
+                tipsText:
+                    "了解前往暹粒旅行前需要知道的一切。",
+
+                readTips:
+                    "阅读贴士 →",
+
+                realExperiences:
+                    "真实体验",
+
+                seeLoveShare:
+                    "看见它，喜欢它，分享它。",
+
+                shareExperienceText:
+                    "看看其他旅行者对暹粒餐厅和体验的评价，并与下一位旅行者分享你的故事。",
+
+                shareExperience:
+                    "分享你的体验 +",
+
+                localPicks:
+                    "当地推荐",
+
+                travelSmarter:
+                    "聪明旅行。",
+
+                travelSmarterText:
+                    "获取实用的当地贴士、餐厅推荐和暹粒旅行建议。",
+
+                exploreTips:
+                    "探索贴士 →",
+
+                footerDescription:
+                    "你的暹粒旅行指南，带你发现最佳餐厅、真实体验和旅行贴士。",
+
+                exploreFooter:
+                    "探索",
+
+                informationFooter:
+                    "信息",
+
+                supportFooter:
+                    "支持",
+
+                heritage:
+                    "文化遗产",
+
+                travelGuide:
+                    "旅行指南",
+
+                aboutSiemReap:
+                    "关于暹粒",
+
+                faq:
+                    "常见问题",
+
+                contactUs:
+                    "联系我们",
+
+                privacy:
+                    "隐私政策",
+
+                terms:
+                    "使用条款",
+
+                copyright:
+                    "© 2026 Taste Siem Reap。版权所有。"
+
+            },
+
+
+            km: {
+
+                navHome:
+                    "ទំព័រដើម",
+
+                navRestaurants:
+                    "ភោជនីយដ្ឋាន",
+
+                navExperience:
+                    "បទពិសោធន៍",
+
+                navAbout:
+                    "អំពីយើង",
+
+                heroEyebrow:
+                    "អាហារឆ្ងាញ់ អារម្មណ៍ល្អ",
+
+                heroTitle:
+                    'ញ៉ាំដូចអ្នកក្នុងស្រុក<br>នៅ<span>សៀមរាប</span>',
+
+                heroText:
+                    "មគ្គុទេសក៍របស់អ្នកទៅកាន់ភោជនីយដ្ឋានល្អៗ អាហារខ្មែរដើម និងបទពិសោធន៍ក្នុងស្រុកដ៏អស្ចារ្យនៅសៀមរាប។",
+
+                exploreRestaurants:
+                    "ស្វែងរកភោជនីយដ្ឋាន →",
+
+                discoverExperiences:
+                    "ស្វែងរកបទពិសោធន៍",
+
+                happyTravelers:
+                    "អ្នកធ្វើដំណើរដែលពេញចិត្ត",
+
+                basedReviews:
+                    "ផ្អែកលើការវាយតម្លៃជាង 600",
+
+                topRestaurants:
+                    "ភោជនីយដ្ឋានល្បីៗ",
+
+                topRestaurantsText:
+                    "ជ្រើសរើសកន្លែងដែលអ្នកក្នុងស្រុក និងអ្នកធ្វើដំណើរចូលចិត្ត។",
+
+                localExperiences:
+                    "បទពិសោធន៍ក្នុងស្រុក",
+
+                localExperiencesText:
+                    "ស្វែងរកសកម្មភាពពិសេសៗនៅជុំវិញសៀមរាប។",
+
+                realReviews:
+                    "ការវាយតម្លៃពិត",
+
+                realReviewsText:
+                    "អានរឿងរ៉ាវ និងការវាយតម្លៃពីអ្នកធ្វើដំណើរផ្សេងទៀត។",
+
+                travelTips:
+                    "គន្លឹះធ្វើដំណើរ",
+
+                travelTipsText:
+                    "គំនិតមានប្រយោជន៍សម្រាប់ដំណើររបស់អ្នកនៅសៀមរាប។",
+
+                exploreSiemReap:
+                    "ស្វែងយល់ពីសៀមរាប",
+
+                moreThanFood:
+                    "លើសពីអាហារ",
+
+                heritageCulture:
+                    "បេតិកភណ្ឌ និងវប្បធម៌",
+
+                heritageText:
+                    "ស្វែងយល់ពីប្រាសាទបុរាណ ប្រវត្តិសាស្ត្រ និងវប្បធម៌ក្នុងស្រុក។",
+
+                discoverMore:
+                    "ស្វែងយល់បន្ថែម →",
+
+                experienceText:
+                    "ចូលរួមសកម្មភាពក្នុងស្រុក និងបង្កើតអនុស្សាវរីយ៍ដែលមិនអាចបំភ្លេចបាន។",
+
+                seeExperiences:
+                    "មើលបទពិសោធន៍ →",
+
+                tipsText:
+                    "អ្វីៗដែលអ្នកត្រូវដឹងមុនពេលមកទស្សនាសៀមរាប។",
+
+                readTips:
+                    "អានគន្លឹះ →",
+
+                realExperiences:
+                    "បទពិសោធន៍ពិត",
+
+                seeLoveShare:
+                    "ឃើញវា។ ស្រឡាញ់វា។ ចែករំលែកវា។",
+
+                shareExperienceText:
+                    "ស្វែងយល់ពីអ្វីដែលអ្នកធ្វើដំណើរផ្សេងទៀតគិតអំពីភោជនីយដ្ឋាន និងបទពិសោធន៍នៅសៀមរាប ហើយចែករំលែករឿងរបស់អ្នក។",
+
+                shareExperience:
+                    "ចែករំលែកបទពិសោធន៍ +",
+
+                localPicks:
+                    "ជម្រើសក្នុងស្រុក",
+
+                travelSmarter:
+                    "ធ្វើដំណើរឱ្យឆ្លាតវៃ។",
+
+                travelSmarterText:
+                    "ទទួលបានគន្លឹះក្នុងស្រុក ការណែនាំភោជនីយដ្ឋាន និងគំនិតសម្រាប់ដំណើររបស់អ្នកនៅសៀមរាប។",
+
+                exploreTips:
+                    "ស្វែងរកគន្លឹះ →",
+
+                footerDescription:
+                    "មគ្គុទេសក៍របស់អ្នកទៅកាន់ភោជនីយដ្ឋានល្អៗ បទពិសោធន៍ពិត និងគន្លឹះធ្វើដំណើរនៅសៀមរាប។",
+
+                exploreFooter:
+                    "ស្វែងរក",
+
+                informationFooter:
+                    "ព័ត៌មាន",
+
+                supportFooter:
+                    "ជំនួយ",
+
+                heritage:
+                    "បេតិកភណ្ឌ",
+
+                travelGuide:
+                    "មគ្គុទេសក៍ធ្វើដំណើរ",
+
+                aboutSiemReap:
+                    "អំពីសៀមរាប",
+
+                faq:
+                    "សំណួរដែលសួរញឹកញាប់",
+
+                contactUs:
+                    "ទាក់ទងយើង",
+
+                privacy:
+                    "គោលការណ៍ឯកជនភាព",
+
+                terms:
+                    "លក្ខខណ្ឌប្រើប្រាស់",
+
+                copyright:
+                    "© 2026 Taste Siem Reap។ រក្សាសិទ្ធិគ្រប់យ៉ាង។"
+
+            }
+
+        };
+
+
+        /* =====================================================
+           LANGUAGE SELECTOR
+        ===================================================== */
+
+        const languageWrapper =
+            document.getElementById("languageWrapper");
+
+        const languageButton =
+            document.getElementById("languageButton");
+
+        const currentLanguageSpan =
+            document.getElementById("currentLanguage");
+
+        const languageMenu =
+            document.getElementById("languageMenu");
+
+        const languageOptions =
+            document.querySelectorAll(".language-option");
+
+
+        languageButton.addEventListener("click", function (event) {
+
+            event.stopPropagation();
+
+            languageMenu.classList.toggle("show");
+
+        });
+
+
+        document.addEventListener("click", function (event) {
+
+            if (!languageWrapper.contains(event.target)) {
+
+                languageMenu.classList.remove("show");
+
+            }
+
+        });
+
+
+        function changeLanguage(language) {
+
+            const selected =
+                translations[language];
+
+            if (!selected) return;
+
+
+            document
+                .querySelectorAll("[data-i18n]")
+                .forEach(element => {
+
+                    const key =
+                        element.getAttribute("data-i18n");
+
+                    if (selected[key]) {
+
+                        element.innerHTML =
+                            selected[key];
+
+                    }
+
+                });
+
+
+            if (language === "en") {
+
+                currentLanguageSpan.textContent = "EN";
+
+                document.documentElement.lang = "en";
+
+            } else if (language === "zh") {
+
+                currentLanguageSpan.textContent = "中文";
+
+                document.documentElement.lang = "zh";
+
+            } else if (language === "km") {
+
+                currentLanguageSpan.textContent = "ខ្មែរ";
+
+                document.documentElement.lang = "km";
+
+            }
+
+
+            languageOptions.forEach(option => {
+
+                option.classList.remove("active");
+
+                if (option.dataset.language === language) {
+
+                    option.classList.add("active");
+
+                }
+
+            });
+
+
+            localStorage.setItem("selectedLanguage", language);
+
+
+            languageMenu.classList.remove("show");
+
+        }
+
+
+        languageOptions.forEach(option => {
+
+            option.addEventListener("click", function () {
+
+                changeLanguage(this.dataset.language);
+
+            });
+
+        });
+
+
+        /* =====================================================
+           LOAD SAVED LANGUAGE
+        ===================================================== */
+
+        const savedLanguage =
+            localStorage.getItem("selectedLanguage");
+
+
+        if (savedLanguage && translations[savedLanguage]) {
+
+            changeLanguage(savedLanguage);
+
+        }
+
+
+        /* =====================================================
+           MOBILE HAMBURGER MENU
+        ===================================================== */
+
+        const hamburger =
+            document.getElementById("hamburger");
+
+        const mobileNav =
+            document.getElementById("mobileNav");
+
+
+        hamburger.addEventListener("click", function () {
+
+            this.classList.toggle("active");
+
+            mobileNav.classList.toggle("open");
+
+            document.body.style.overflow =
+                mobileNav.classList.contains("open") ? "hidden" : "";
+
+        });
+
+
+        // Close mobile nav when a link is clicked
+
+        mobileNav.querySelectorAll("a").forEach(link => {
+
+            link.addEventListener("click", function () {
+
+                hamburger.classList.remove("active");
+
+                mobileNav.classList.remove("open");
+
+                document.body.style.overflow = "";
+
+            });
+
+        });
+
+
+        // Close mobile nav on window resize to desktop
+
+        window.addEventListener("resize", function () {
+
+            if (window.innerWidth > 768) {
+
+                hamburger.classList.remove("active");
+
+                mobileNav.classList.remove("open");
+
+                document.body.style.overflow = "";
+
+            }
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>

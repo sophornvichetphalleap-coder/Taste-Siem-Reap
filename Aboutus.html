@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Taste Siem Reap</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* =====================================================
+           BRIGHTER COLOR THEME – SAME AS HOMEPAGE
+        ===================================================== */
+
+        :root {
+            --bg: #18231c;
+            --bg-soft: #202d24;
+            --card: #253329;
+            --card-hover: #2d3d31;
+            --green-dark: #132019;
+            --green-light: #38513f;
+            --gold: #dfb866;
+            --gold-light: #f5d995;
+            --text: #faf8f0;
+            --muted: #c0c8bf;
+            --muted-dark: #8e988d;
+            --border: rgba(235, 240, 230, .14);
+            --shadow: 0 20px 50px rgba(0, 0, 0, .28);
+
+            /* Responsive variables */
+            --header-height: 70px;
+            --container-padding: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(82, 120, 87, .25),
+                    transparent 38%
+                ),
+                linear-gradient(
+                    180deg,
+                    #1c2921 0%,
+                    #18231c 45%,
+                    #151f19 100%
+                );
+            color: var(--text);
+            font-family: "DM Sans", sans-serif;
+            line-height: 1.5;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        /* =====================================================
+           HEADER — EXACTLY LIKE INDEX
+        ===================================================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(25, 38, 29, .94);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            height: var(--header-height);
+            transition: height 0.3s ease;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 100%;
+            padding: 0 var(--container-padding);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(20px, 2.5vw, 26px);
+            font-weight: 700;
+            letter-spacing: .3px;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: clamp(15px, 2vw, 30px);
+            list-style: none;
+            height: var(--header-height);
+        }
+
+        .nav-links a {
+            color: #e1e6df;
+            font-size: clamp(12px, 1vw, 14px);
+            font-weight: 500;
+            transition: .25s ease;
+            position: relative;
+            padding: 5px 0;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--gold-light);
+        }
+
+        .nav-links a.active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 10px;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .nav-action {
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: var(--muted);
+            background: transparent;
+            cursor: pointer;
+            transition: .25s ease;
+            font-size: 14px;
+        }
+
+        .nav-action:hover {
+            border-color: var(--gold);
+            color: var(--gold-light);
+            background: rgba(223, 184, 102, .08);
+        }
+
+        .language-wrapper {
+            position: relative;
+        }
+
+        .language-btn {
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: var(--muted);
+            background: transparent;
+            cursor: pointer;
+            transition: .25s ease;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .language-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold-light);
+            background: rgba(223, 184, 102, .08);
+        }
+
+        .language-menu {
+            position: absolute;
+            right: 0;
+            top: calc(100% + 10px);
+            min-width: 145px;
+            padding: 7px;
+            background: #26372c;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            display: none;
+            z-index: 100;
+        }
+
+        .language-menu.show {
+            display: block;
+        }
+
+        .language-option {
+            width: 100%;
+            border: none;
+            background: transparent;
+            color: var(--muted);
+            padding: 10px 11px;
+            border-radius: 10px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 13px;
+            transition: .2s ease;
+        }
+
+        .language-option:hover,
+        .language-option.active {
+            background: rgba(223, 184, 102, .15);
+            color: var(--gold-light);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 8px;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: .3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(18, 35, 22, .97);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 999;
+            padding: 30px var(--container-padding);
+            overflow-y: auto;
+        }
+
+        .mobile-nav-overlay.open {
+            display: block;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mobile-nav-links a {
+            display: block;
+            padding: 16px 20px;
+            color: var(--text);
+            font-size: 18px;
+            font-weight: 500;
+            border-radius: 12px;
+            transition: .25s ease;
+            text-align: center;
+        }
+
+        .mobile-nav-links a:hover,
+        .mobile-nav-links a.active {
+            background: rgba(223, 184, 102, .15);
+            color: var(--gold-light);
+        }
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: clamp(350px, 55vh, 470px);
+            padding: clamp(40px, 6vh, 80px) var(--container-padding) clamp(30px, 4vh, 70px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(23, 38, 28, .48),
+                    rgba(23, 38, 28, .82)
+                ),
+                url("hd2.jpg")
+                center/cover no-repeat;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-content {
+            max-width: 700px;
+            width: 100%;
+        }
+
+        .hero-label {
+            display: block;
+            margin-bottom: 14px;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: clamp(2px, 0.3vw, 2.5px);
+            font-size: clamp(10px, 0.9vw, 12px);
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(32px, 6vw, 70px);
+            font-weight: 600;
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--gold-light);
+        }
+
+        .hero-line {
+            width: clamp(40px, 5vw, 58px);
+            height: 2px;
+            background: var(--gold);
+            margin: 0 auto clamp(16px, 2vh, 22px);
+        }
+
+        .hero p {
+            max-width: 590px;
+            margin: auto;
+            color: #d0d7cf;
+            font-size: clamp(14px, 1.1vw, 16px);
+            line-height: 1.7;
+        }
+
+        /* =====================================================
+           ABOUT
+        ===================================================== */
+
+        .about {
+            width: min(1200px, 100%);
+            margin: auto;
+            padding: clamp(40px, 6vh, 80px) var(--container-padding);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: clamp(25px, 4vw, 60px);
+            align-items: center;
+        }
+
+        .about-image {
+            height: clamp(220px, 35vh, 400px);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: clamp(14px, 1.5vw, 20px);
+            background: var(--card);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .about-text small {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: clamp(10px, 0.8vw, 11px);
+            font-weight: 700;
+        }
+
+        .about-text h2 {
+            margin: 9px 0 19px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(26px, 3.5vw, 36px);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .about-text h2 span {
+            color: var(--gold-light);
+        }
+
+        .about-text p {
+            max-width: 530px;
+            margin-bottom: 15px;
+            color: var(--muted);
+            font-size: clamp(13px, 1vw, 14px);
+            line-height: 1.8;
+        }
+
+        /* =====================================================
+           PURPOSE
+        ===================================================== */
+
+        .purpose-section {
+            padding: clamp(40px, 6vh, 80px) var(--container-padding);
+            background: var(--bg-soft);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .purpose {
+            max-width: 760px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .purpose small {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: clamp(10px, 0.8vw, 11px);
+            font-weight: 700;
+        }
+
+        .purpose h2 {
+            margin: 9px 0 17px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(26px, 3.5vw, 36px);
+            font-weight: 600;
+        }
+
+        .purpose>p {
+            max-width: 650px;
+            margin: auto;
+            color: var(--muted);
+            font-size: clamp(13px, 1vw, 14px);
+            line-height: 1.8;
+        }
+
+        /* =====================================================
+           FEATURES
+        ===================================================== */
+
+        .features {
+            width: min(1200px, 100%);
+            margin: auto;
+            padding: clamp(40px, 6vh, 80px) var(--container-padding);
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: clamp(15px, 3vw, 25px);
+            margin-bottom: clamp(20px, 3vh, 30px);
+            flex-wrap: wrap;
+        }
+
+        .heading-left small {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: clamp(10px, 0.8vw, 11px);
+            font-weight: 700;
+        }
+
+        .section-heading h2 {
+            margin-top: 7px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(26px, 3.5vw, 36px);
+            font-weight: 600;
+        }
+
+        .heading-description {
+            max-width: 370px;
+            color: var(--muted);
+            font-size: clamp(13px, 1vw, 14px);
+            line-height: 1.7;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(14px, 1.8vw, 18px);
+        }
+
+        .feature {
+            min-height: clamp(170px, 25vh, 205px);
+            padding: clamp(18px, 2.5vw, 28px) clamp(16px, 2vw, 22px);
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: clamp(14px, 1.5vw, 18px);
+
+            transition:
+                transform .25s,
+                background .25s,
+                border-color .25s,
+                box-shadow .25s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            background: var(--card-hover);
+            border-color: rgba(223, 184, 102, .45);
+            box-shadow: var(--shadow);
+        }
+
+        .icon {
+            width: clamp(38px, 4vw, 45px);
+            height: clamp(38px, 4vw, 45px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: clamp(14px, 2vh, 20px);
+            border: 1px solid rgba(223, 184, 102, .25);
+            border-radius: 12px;
+            background: #2d3d31;
+            font-size: clamp(16px, 1.6vw, 19px);
+        }
+
+        .feature h3 {
+            margin-bottom: 8px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(17px, 1.8vw, 20px);
+            font-weight: 600;
+        }
+
+        .feature p {
+            color: var(--muted);
+            font-size: clamp(13px, 1vw, 14px);
+            line-height: 1.7;
+        }
+
+        /* =====================================================
+           GOAL
+        ===================================================== */
+
+        .goal {
+            min-height: clamp(320px, 50vh, 390px);
+            padding: clamp(40px, 6vh, 80px) var(--container-padding);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(23, 38, 28, .52),
+                    rgba(23, 38, 28, .85)
+                ),
+                url("images/angkor-sunset.jpg")
+                center/cover no-repeat;
+
+            border-top: 1px solid var(--border);
+        }
+
+        .goal-content {
+            max-width: 700px;
+            width: 100%;
+        }
+
+        .goal small {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: clamp(2px, 0.3vw, 2.5px);
+            font-size: clamp(10px, 0.9vw, 12px);
+            font-weight: 700;
+        }
+
+        .goal h2 {
+            margin: 10px 0 16px;
+            font-family: "Playfair Display", serif;
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 600;
+        }
+
+        .goal h2 span {
+            color: var(--gold-light);
+        }
+
+        .goal p {
+            max-width: 620px;
+            margin: auto;
+            color: #d0d7cf;
+            font-size: clamp(14px, 1.1vw, 16px);
+            line-height: 1.8;
+        }
+
+        .explore-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 27px;
+            padding: clamp(10px, 1.2vw, 12px) clamp(16px, 2vw, 21px);
+            background: var(--gold);
+            color: #17140e;
+            border-radius: 999px;
+            font-size: clamp(12px, 1vw, 13px);
+            font-weight: 700;
+            transition: .25s;
+        }
+
+        .explore-btn:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
+        /* =====================================================
+           FOOTER — EXACTLY LIKE INDEX
+        ===================================================== */
+
+        footer {
+            margin-top: clamp(50px, 8vh, 110px);
+            padding: clamp(30px, 4vh, 55px) var(--container-padding) clamp(18px, 3vh, 25px);
+            background: #111b15;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: clamp(20px, 4vw, 45px);
+        }
+
+        .footer-brand h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(20px, 2.2vw, 25px);
+            margin-bottom: 10px;
+        }
+
+        .footer-brand h2 span {
+            color: var(--gold);
+        }
+
+        .footer-brand p {
+            max-width: 350px;
+            color: var(--muted);
+            font-size: clamp(11px, 1vw, 13px);
+        }
+
+        .socials {
+            display: flex;
+            gap: 9px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social {
+            width: clamp(30px, 3vw, 35px);
+            height: clamp(30px, 3vw, 35px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--muted);
+            font-size: clamp(11px, 1vw, 13px);
+            transition: .25s ease;
+            cursor: pointer;
+        }
+
+        .social:hover {
+            color: var(--gold-light);
+            border-color: var(--gold);
+        }
+
+        .footer-column h3 {
+            color: var(--gold);
+            font-size: clamp(10px, 0.9vw, 12px);
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: var(--muted);
+            font-size: clamp(11px, 0.9vw, 12px);
+            margin-bottom: 9px;
+            transition: .25s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--gold-light);
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: clamp(20px, 3vh, 40px) auto 0;
+            padding-top: clamp(14px, 2vh, 20px);
+            border-top: 1px solid var(--border);
+            color: #849087;
+            font-size: clamp(10px, 0.8vw, 11px);
+            text-align: center;
+        }
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1024px) {
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --header-height: 64px;
+                --container-padding: 16px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-action {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
+
+            .language-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 10px;
+            }
+
+            .hero {
+                min-height: clamp(300px, 55vh, 420px);
+                padding: clamp(30px, 4vh, 50px) var(--container-padding) clamp(20px, 3vh, 40px);
+            }
+
+            .hero h1 {
+                font-size: clamp(28px, 7vw, 40px);
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .about {
+                padding: clamp(30px, 4vh, 50px) var(--container-padding);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .about-image {
+                height: clamp(180px, 30vh, 240px);
+                border-radius: 14px;
+            }
+
+            .about-text h2 {
+                font-size: clamp(24px, 5vw, 30px);
+            }
+
+            .purpose-section {
+                padding: clamp(30px, 4vh, 50px) var(--container-padding);
+            }
+
+            .purpose h2 {
+                font-size: clamp(24px, 5vw, 30px);
+            }
+
+            .features {
+                padding: clamp(30px, 4vh, 50px) var(--container-padding);
+            }
+
+            .section-heading {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .section-heading h2 {
+                font-size: clamp(24px, 5vw, 30px);
+            }
+
+            .heading-description {
+                margin-top: 10px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .feature {
+                min-height: auto;
+                border-radius: 14px;
+            }
+
+            .goal {
+                min-height: clamp(280px, 45vh, 360px);
+                padding: clamp(30px, 4vh, 50px) var(--container-padding);
+            }
+
+            .goal h2 {
+                font-size: clamp(24px, 5vw, 30px);
+            }
+
+            .goal p {
+                font-size: 14px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .mobile-nav-overlay {
+                padding: 20px var(--container-padding) 40px;
+            }
+
+            .mobile-nav-links a {
+                font-size: 16px;
+                padding: 14px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --header-height: 58px;
+                --container-padding: 14px;
+            }
+
+            .logo {
+                font-size: clamp(17px, 4.5vw, 20px);
+            }
+
+            .nav-action {
+                width: 28px;
+                height: 28px;
+                font-size: 11px;
+            }
+
+            .language-btn {
+                width: 28px;
+                height: 28px;
+                font-size: 9px;
+            }
+
+            .hamburger span {
+                width: 22px;
+                height: 2px;
+            }
+
+            .hero h1 {
+                font-size: clamp(24px, 7.5vw, 34px);
+            }
+
+            .hero p {
+                font-size: 13px;
+            }
+
+            .hero-label {
+                font-size: 9px;
+            }
+
+            .about-text h2 {
+                font-size: 22px;
+            }
+
+            .about-text p {
+                font-size: 13px;
+            }
+
+            .purpose h2 {
+                font-size: 22px;
+            }
+
+            .purpose>p {
+                font-size: 13px;
+            }
+
+            .section-heading h2 {
+                font-size: 22px;
+            }
+
+            .feature h3 {
+                font-size: 17px;
+            }
+
+            .feature p {
+                font-size: 13px;
+            }
+
+            .goal h2 {
+                font-size: 24px;
+            }
+
+            .goal p {
+                font-size: 13px;
+            }
+
+            .language-menu {
+                min-width: 130px;
+                right: -10px;
+            }
+
+            .language-option {
+                font-size: 12px;
+                padding: 8px 10px;
+            }
+
+            .mobile-nav-links a {
+                font-size: 14px;
+                padding: 12px 14px;
+            }
+
+            .explore-btn {
+                font-size: 12px;
+                padding: 8px 14px;
+            }
+        }
+
+        @media (max-width: 768px) and (orientation: landscape) {
+            .hero {
+                min-height: clamp(250px, 55vh, 340px);
+                padding: clamp(15px, 3vh, 30px) var(--container-padding);
+            }
+
+            .hero h1 {
+                font-size: clamp(22px, 5vw, 32px);
+            }
+
+            .about-image {
+                height: clamp(150px, 25vh, 200px);
+            }
+
+            .mobile-nav-overlay {
+                padding: 12px var(--container-padding);
+            }
+
+            .mobile-nav-links a {
+                padding: 10px 14px;
+                font-size: 14px;
+            }
+        }
+
+        @media (min-width: 1024px) and (max-width: 1366px) {
+            .hero h1 {
+                font-size: clamp(38px, 5vw, 52px);
+            }
+
+            .about-image {
+                height: clamp(280px, 30vh, 350px);
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .w-full {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================================
+         HEADER — EXACTLY LIKE INDEX
+    ============================================================ -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                Taste <span>Siem Reap</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html" data-i18n="navHome">Home</a></li>
+                <li><a href="res.html" data-i18n="navRestaurants">Restaurants</a></li>
+                <li><a href="experience.html" data-i18n="navExperience">Experience</a></li>
+                <li><a href="Aboutus.html" class="active" data-i18n="navAbout">About Us</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="nav-action" type="button" aria-label="Favorites" title="Favorites">♡</button>
+
+                <div class="language-wrapper" id="languageWrapper">
+                    <button class="language-btn" id="languageButton" type="button" aria-label="Language">
+                        <span id="currentLanguage">EN</span>
+                    </button>
+                    <div class="language-menu" id="languageMenu">
+                        <button class="language-option active" data-language="en" type="button">🇬🇧 English</button>
+                        <button class="language-option" data-language="zh" type="button">🇨🇳 中文</button>
+                        <button class="language-option" data-language="km" type="button">🇰🇭 ខ្មែរ</button>
+                    </div>
+                </div>
+
+                <button class="hamburger" id="hamburger" type="button" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ============================================================
+         MOBILE NAV
+    ============================================================ -->
+    <div class="mobile-nav-overlay" id="mobileNav">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html" data-i18n="navHome">Home</a></li>
+            <li><a href="res.html" data-i18n="navRestaurants">Restaurants</a></li>
+            <li><a href="experience.html" data-i18n="navExperience">Experience</a></li>
+            <li><a href="Aboutus.html" class="active" data-i18n="navAbout">About Us</a></li>
+        </ul>
+    </div>
+
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span
+                class="hero-label"
+                data-i18n="heroLabel">
+
+                About Taste Siem Reap
+
+            </span>
+
+            <h1>
+
+                <span class="hero-main-text"
+                      data-i18n="heroTitle">
+                    Discover Where
+                </span>
+
+                <span data-i18n="heroTitleGold">
+                    to Eat.
+                </span>
+
+            </h1>
+
+            <div class="hero-line"></div>
+
+            <p data-i18n="heroDescription">
+
+                Taste Siem Reap was created to make it easier
+                for tourists to discover great food, restaurants,
+                and local experiences while exploring Siem Reap.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================================
+         ABOUT
+    ===================================================== -->
+
+    <section class="about">
+
+        <div class="about-grid">
+
+            <div class="about-image">
+
+                <img
+                    src="fd.jpg"
+                    alt="Food in Siem Reap">
+
+            </div>
+
+            <div class="about-text">
+
+                <small data-i18n="whyCreated">
+                    Why we created it
+                </small>
+
+                <h2>
+
+                    <span class="about-heading-main"
+                          data-i18n="makingDiscovery">
+                        Making food discovery
+                    </span>
+
+                    <span data-i18n="easier">
+                        easier.
+                    </span>
+
+                </h2>
+
+                <p data-i18n="aboutText1">
+
+                    When visiting a new place, finding a good
+                    restaurant can sometimes be difficult.
+
+                </p>
+
+                <p data-i18n="aboutText2">
+
+                    Tourists may not know where restaurants are,
+                    what food they should try, or which places
+                    are worth visiting.
+
+                </p>
+
+                <p data-i18n="aboutText3">
+
+                    That's why we created Taste Siem Reap —
+                    to bring useful information together in one
+                    simple and easy-to-use website.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================================
+         PURPOSE
+    ===================================================== -->
+
+    <section class="purpose-section">
+
+        <div class="purpose">
+
+            <small data-i18n="ourPurpose">
+                Our purpose
+            </small>
+
+            <h2 data-i18n="purposeTitle">
+
+                Made for people visiting Siem Reap
+
+            </h2>
+
+            <p data-i18n="purposeDescription">
+
+                Our website helps tourists explore restaurants,
+                Cambodian food, drinks, locations, ratings, and
+                recommendations so they can choose where to eat
+                more easily during their trip.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================================
+         FEATURES
+    ===================================================== -->
+
+    <section class="features">
+
+        <div class="section-heading">
+
+            <div class="heading-left">
+
+                <small data-i18n="whatFind">
+                    What you can find
+                </small>
+
+                <h2 data-i18n="everythingPlace">
+                    Everything in one place
+                </h2>
+
+            </div>
+
+            <p
+                class="heading-description"
+                data-i18n="featuresDescription">
+
+                Explore useful information about food,
+                restaurants and places around Siem Reap
+                without having to search everywhere.
+
+            </p>
+
+        </div>
+
+        <div class="feature-grid">
+
+            <!-- FOOD -->
+
+            <div class="feature">
+
+                <div class="icon">
+                    🍜
+                </div>
+
+                <h3 data-i18n="food">
+                    Food
+                </h3>
+
+                <p data-i18n="foodDescription">
+
+                    Discover Cambodian dishes and
+                    foods you can try while exploring
+                    Siem Reap.
+
+                </p>
+
+            </div>
+
+            <!-- LOCATIONS -->
+
+            <div class="feature">
+
+                <div class="icon">
+                    📍
+                </div>
+
+                <h3 data-i18n="locations">
+                    Locations
+                </h3>
+
+                <p data-i18n="locationsDescription">
+
+                    Find restaurants and see where
+                    they are located around the city.
+
+                </p>
+
+            </div>
+
+            <!-- RATINGS -->
+
+            <div class="feature">
+
+                <div class="icon">
+                    ⭐
+                </div>
+
+                <h3 data-i18n="ratings">
+                    Ratings
+                </h3>
+
+                <p data-i18n="ratingsDescription">
+
+                    Check ratings and recommendations
+                    before choosing a place to eat.
+
+                </p>
+
+            </div>
+
+            <!-- DRINKS -->
+
+            <div class="feature">
+
+                <div class="icon">
+                    🥤
+                </div>
+
+                <h3 data-i18n="drinks">
+                    Drinks
+                </h3>
+
+                <p data-i18n="drinksDescription">
+
+                    Explore refreshing drinks and
+                    different choices around Siem Reap.
+
+                </p>
+
+            </div>
+
+            <!-- EASY TO FIND -->
+
+            <div class="feature">
+
+                <div class="icon">
+                    🗺️
+                </div>
+
+                <h3 data-i18n="easyFind">
+                    Easy to Find
+                </h3>
+
+                <p data-i18n="easyFindDescription">
+
+                    Get useful location information
+                    to help you find the places you choose.
+
+                </p>
+
+            </div>
+
+            <!-- RECOMMENDATIONS -->
+
+            <div class="feature">
+
+                <div class="icon">
+                    ♡
+                </div>
+
+                <h3 data-i18n="recommendations">
+                    Recommendations
+                </h3>
+
+                <p data-i18n="recommendationsDescription">
+
+                    Discover places that may be worth
+                    adding to your Siem Reap trip.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =====================================================
+         GOAL
+    ===================================================== -->
+
+    <section class="goal">
+
+        <div class="goal-content">
+
+            <small data-i18n="ourGoal">
+                Our goal
+            </small>
+
+            <h2>
+
+                <span
+                    class="goal-main-text"
+                    data-i18n="lessSearching">
+
+                    Less searching.
+
+                </span>
+
+                <span data-i18n="moreExploring">
+                    More exploring.
+                </span>
+
+            </h2>
+
+            <p data-i18n="goalDescription">
+
+                We want to make finding a good place to eat
+                simple for tourists, so they can spend less
+                time searching and more time enjoying the
+                food and experiences of Siem Reap.
+
+            </p>
+
+            <a
+                href="res.html"
+                class="explore-btn">
+
+                <span data-i18n="exploreRestaurants">
+                    Explore Restaurants
+                </span>
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- ============================================================
+         FOOTER — EXACTLY LIKE INDEX
+    ============================================================ -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>Taste <span>Siem Reap</span></h2>
+                <p data-i18n="footerDescription">Your guide to the best restaurants, authentic experiences and travel tips in Siem Reap, Cambodia.</p>
+                <div class="socials">
+                    <span class="social">f</span>
+                    <span class="social">◎</span>
+                    <span class="social">♪</span>
+                    <span class="social">▶</span>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3 data-i18n="exploreFooter">EXPLORE</h3>
+                <a href="res.html" data-i18n="navRestaurants">Restaurants</a>
+                <a href="experience.html" data-i18n="navExperience">Experience</a>
+                <a href="tips.html" data-i18n="travelTips">Travel Tips</a>
+                <a href="Aboutus.html" data-i18n="navAbout">About Us</a>
+            </div>
+
+            <div class="footer-column">
+                <h3 data-i18n="informationFooter">INFORMATION</h3>
+                <a href="heritage.html" data-i18n="heritage">Heritage</a>
+                <a href="tips.html" data-i18n="travelGuide">Travel Guide</a>
+                <a href="Aboutus.html" data-i18n="aboutSiemReap">About Siem Reap</a>
+                <a href="#" data-i18n="faq">FAQ</a>
+            </div>
+
+            <div class="footer-column">
+                <h3 data-i18n="supportFooter">SUPPORT</h3>
+                <a href="#" data-i18n="contactUs">Contact Us</a>
+                <a href="#" data-i18n="privacy">Privacy Policy</a>
+                <a href="#" data-i18n="terms">Terms of Use</a>
+            </div>
+        </div>
+
+        <div class="copyright" data-i18n="copyright">
+            © 2026 Taste Siem Reap. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- =====================================================
+         TRANSLATION SCRIPT
+    ===================================================== -->
+
+    <script>
+
+        const translations = {
+
+            en: {
+                navHome: "Home",
+                navRestaurants: "Restaurants",
+                navExperience: "Experience",
+                navAbout: "About Us",
+
+                heroLabel: "About Taste Siem Reap",
+                heroTitle: "Discover Where",
+                heroTitleGold: "to Eat.",
+                heroDescription:
+                    "Taste Siem Reap was created to make it easier for tourists to discover great food, restaurants, and local experiences while exploring Siem Reap.",
+
+                whyCreated: "Why we created it",
+                makingDiscovery: "Making food discovery",
+                easier: "easier.",
+                aboutText1:
+                    "When visiting a new place, finding a good restaurant can sometimes be difficult.",
+                aboutText2:
+                    "Tourists may not know where restaurants are, what food they should try, or which places are worth visiting.",
+                aboutText3:
+                    "That's why we created Taste Siem Reap — to bring useful information together in one simple and easy-to-use website.",
+
+                ourPurpose: "Our purpose",
+                purposeTitle: "Made for people visiting Siem Reap",
+                purposeDescription:
+                    "Our website helps tourists explore restaurants, Cambodian food, drinks, locations, ratings, and recommendations so they can choose where to eat more easily during their trip.",
+
+                whatFind: "What you can find",
+                everythingPlace: "Everything in one place",
+                featuresDescription:
+                    "Explore useful information about food, restaurants and places around Siem Reap without having to search everywhere.",
+
+                food: "Food",
+                foodDescription:
+                    "Discover Cambodian dishes and foods you can try while exploring Siem Reap.",
+
+                locations: "Locations",
+                locationsDescription:
+                    "Find restaurants and see where they are located around the city.",
+
+                ratings: "Ratings",
+                ratingsDescription:
+                    "Check ratings and recommendations before choosing a place to eat.",
+
+                drinks: "Drinks",
+                drinksDescription:
+                    "Explore refreshing drinks and different choices around Siem Reap.",
+
+                easyFind: "Easy to Find",
+                easyFindDescription:
+                    "Get useful location information to help you find the places you choose.",
+
+                recommendations: "Recommendations",
+                recommendationsDescription:
+                    "Discover places that may be worth adding to your Siem Reap trip.",
+
+                ourGoal: "Our goal",
+                lessSearching: "Less searching.",
+                moreExploring: "More exploring.",
+                goalDescription:
+                    "We want to make finding a good place to eat simple for tourists, so they can spend less time searching and more time enjoying the food and experiences of Siem Reap.",
+
+                exploreRestaurants: "Explore Restaurants",
+                footerDescription:
+                    "Your guide to the best restaurants, authentic experiences and travel tips in Siem Reap, Cambodia.",
+                copyright: "© 2026 Taste Siem Reap. All rights reserved.",
+
+                /* Footer keys */
+                exploreFooter: "EXPLORE",
+                informationFooter: "INFORMATION",
+                supportFooter: "SUPPORT",
+                heritage: "Heritage",
+                travelTips: "Travel Tips",
+                travelGuide: "Travel Guide",
+                aboutSiemReap: "About Siem Reap",
+                faq: "FAQ",
+                contactUs: "Contact Us",
+                privacy: "Privacy Policy",
+                terms: "Terms of Use"
+            },
+
+            zh: {
+                navHome: "首页",
+                navRestaurants: "餐厅",
+                navExperience: "体验",
+                navAbout: "关于我们",
+
+                heroLabel: "关于 Taste Siem Reap",
+                heroTitle: "发现哪里",
+                heroTitleGold: "吃饭。",
+                heroDescription:
+                    "Taste Siem Reap 旨在帮助游客在探索暹粒时，更轻松地发现美食、餐厅和当地体验。",
+
+                whyCreated: "我们为什么创建它",
+                makingDiscovery: "让美食探索",
+                easier: "更简单。",
+                aboutText1: "来到一个新的地方时，找到一家好的餐厅有时并不容易。",
+                aboutText2: "游客可能不知道餐厅在哪里、应该尝试什么美食，或者哪些地方值得去。",
+                aboutText3: "因此，我们创建了 Taste Siem Reap，将有用的信息集中在一个简单易用的网站中。",
+
+                ourPurpose: "我们的目的",
+                purposeTitle: "为来到暹粒的游客而打造",
+                purposeDescription:
+                    "我们的网站帮助游客探索餐厅、柬埔寨美食、饮品、地点、评分和推荐，让他们在旅行期间更轻松地选择用餐地点。",
+
+                whatFind: "你可以找到什么",
+                everythingPlace: "一站式了解所有信息",
+                featuresDescription:
+                    "探索暹粒周边的美食、餐厅和地点信息，无需到处搜索。",
+
+                food: "美食",
+                foodDescription:
+                    "探索柬埔寨传统菜肴以及在暹粒旅行时可以尝试的美食。",
+
+                locations: "地点",
+                locationsDescription: "寻找餐厅，并查看它们在城市中的位置。",
+
+                ratings: "评分",
+                ratingsDescription: "在选择用餐地点之前，查看评分和推荐。",
+
+                drinks: "饮品",
+                drinksDescription: "探索暹粒周边清爽的饮品和不同的选择。",
+
+                easyFind: "容易找到",
+                easyFindDescription: "获取实用的地点信息，帮助你找到心仪的地方。",
+
+                recommendations: "推荐",
+                recommendationsDescription: "发现值得加入暹粒旅行计划的地方。",
+
+                ourGoal: "我们的目标",
+                lessSearching: "少花时间搜索。",
+                moreExploring: "多花时间探索。",
+                goalDescription:
+                    "我们希望让游客更容易找到适合用餐的地方，让他们少花时间搜索，多花时间享受暹粒的美食和体验。",
+
+                exploreRestaurants: "探索餐厅",
+                footerDescription:
+                    "你的暹粒旅行指南，带你发现最佳餐厅、真实体验和旅行贴士。",
+                copyright: "© 2026 Taste Siem Reap。版权所有。",
+
+                exploreFooter: "探索",
+                informationFooter: "信息",
+                supportFooter: "支持",
+                heritage: "文化遗产",
+                travelTips: "旅行贴士",
+                travelGuide: "旅行指南",
+                aboutSiemReap: "关于暹粒",
+                faq: "常见问题",
+                contactUs: "联系我们",
+                privacy: "隐私政策",
+                terms: "使用条款"
+            },
+
+            km: {
+                navHome: "ទំព័រដើម",
+                navRestaurants: "ភោជនីយដ្ឋាន",
+                navExperience: "បទពិសោធន៍",
+                navAbout: "អំពីយើង",
+
+                heroLabel: "អំពី Taste Siem Reap",
+                heroTitle: "ស្វែងរកកន្លែង",
+                heroTitleGold: "ញ៉ាំអាហារ។",
+                heroDescription:
+                    "Taste Siem Reap ត្រូវបានបង្កើតឡើងដើម្បីជួយអ្នកដំណើរឱ្យស្វែងរកអាហារឆ្ងាញ់ ភោជនីយដ្ឋាន និងបទពិសោធន៍ក្នុងតំបន់បានយ៉ាងងាយស្រួល ខណៈពេលដែលពួកគេកំពុងធ្វើដំណើរនៅសៀមរាប។",
+
+                whyCreated: "ហេតុអ្វីបានជាយើងបង្កើតវា",
+                makingDiscovery: "ធ្វើឱ្យការស្វែងរកអាហារ",
+                easier: "កាន់តែងាយស្រួល។",
+                aboutText1:
+                    "នៅពេលទៅកន្លែងថ្មី ការស្វែងរកភោជនីយដ្ឋានល្អមួយ ជួនកាលអាចពិបាក។",
+                aboutText2:
+                    "អ្នកទេសចរអាចមិនដឹងថាភោជនីយដ្ឋាននៅទីណា គួរញ៉ាំអាហារអ្វី ឬកន្លែងណាខ្លះគួរទៅ។",
+                aboutText3:
+                    "ហេតុដូច្នេះហើយ យើងបានបង្កើត Taste Siem Reap ដើម្បីប្រមូលផ្តុំព័ត៌មានមានប្រយោជន៍ទាំងអស់នៅក្នុងគេហទំព័រមួយដែលងាយស្រួលប្រើ។",
+
+                ourPurpose: "គោលបំណងរបស់យើង",
+                purposeTitle:
+                    "បង្កើតឡើងសម្រាប់អ្នកដំណើរដែលមកកម្សាន្តនៅសៀមរាប",
+                purposeDescription:
+                    "គេហទំព័ររបស់យើងជួយអ្នកទេសចរស្វែងរកភោជនីយដ្ឋាន អាហារខ្មែរ ភេសជ្ជៈ ទីតាំង ការវាយតម្លៃ និងការណែនាំ ដើម្បីឱ្យពួកគេអាចជ្រើសរើសកន្លែងញ៉ាំអាហារបានយ៉ាងងាយស្រួលក្នុងអំឡុងពេលធ្វើដំណើររបស់ពួកគេ។",
+
+                whatFind: "អ្វីដែលអ្នកអាចរកឃើញ",
+                everythingPlace: "អ្វីៗទាំងអស់នៅកន្លែងតែមួយ",
+                featuresDescription:
+                    "ស្វែងរកព័ត៌មានមានប្រយោជន៍អំពីអាហារ ភោជនីយដ្ឋាន និងកន្លែងផ្សេងៗនៅជុំវិញសៀមរាប ដោយមិនចាំបាច់ស្វែងរកគ្រប់ទីកន្លែង។",
+
+                food: "អាហារ",
+                foodDescription:
+                    "ស្វែងរកម្ហូបខ្មែរ និងអាហារដែលអ្នកអាចសាកល្បងនៅពេលធ្វើដំណើរនៅសៀមរាប។",
+
+                locations: "ទីតាំង",
+                locationsDescription:
+                    "ស្វែងរកភោជនីយដ្ឋាន និងមើលទីតាំងរបស់ពួកគេនៅជុំវិញទីក្រុង។",
+
+                ratings: "ការវាយតម្លៃ",
+                ratingsDescription:
+                    "ពិនិត្យមើលការវាយតម្លៃ និងការណែនាំ មុនពេលជ្រើសរើសកន្លែងញ៉ាំអាហារ។",
+
+                drinks: "ភេសជ្ជៈ",
+                drinksDescription:
+                    "ស្វែងរកភេសជ្ជៈស្រស់ស្រាយ និងជម្រើសផ្សេងៗនៅជុំវិញសៀមរាប។",
+
+                easyFind: "ងាយស្រួលរក",
+                easyFindDescription:
+                    "ទទួលបានព័ត៌មានទីតាំងដែលមានប្រយោជន៍ ដើម្បីជួយអ្នកស្វែងរកកន្លែងដែលអ្នកជ្រើសរើស។",
+
+                recommendations: "ការណែនាំ",
+                recommendationsDescription:
+                    "ស្វែងរកកន្លែងដែលអាចមានតម្លៃបន្ថែមទៅក្នុងបញ្ជីដំណើរកម្សាន្តរបស់អ្នកនៅសៀមរាប។",
+
+                ourGoal: "គោលដៅរបស់យើង",
+                lessSearching: "ស្វែងរកតិចជាងមុន។",
+                moreExploring: "ស្វែងយល់បន្ថែមទៀត។",
+                goalDescription:
+                    "យើងចង់ធ្វើឱ្យការស្វែងរកកន្លែងញ៉ាំអាហារល្អមួយងាយស្រួលសម្រាប់អ្នកទេសចរ ដើម្បីឱ្យពួកគេអាចចំណាយពេលតិចក្នុងការស្វែងរក និងចំណាយពេលច្រើនក្នុងការរីករាយជាមួយអាហារ និងបទពិសោធន៍នៅសៀមរាប។",
+
+                exploreRestaurants: "ស្វែងរកភោជនីយដ្ឋាន",
+                footerDescription:
+                    "មគ្គុទេសក៍របស់អ្នកទៅកាន់ភោជនីយដ្ឋានល្អៗ បទពិសោធន៍ពិត និងគន្លឹះធ្វើដំណើរនៅសៀមរាប។",
+                copyright: "© 2026 Taste Siem Reap។ រក្សាសិទ្ធិគ្រប់យ៉ាង។",
+
+                exploreFooter: "ស្វែងរក",
+                informationFooter: "ព័ត៌មាន",
+                supportFooter: "ជំនួយ",
+                heritage: "បេតិកភណ្ឌ",
+                travelTips: "គន្លឹះធ្វើដំណើរ",
+                travelGuide: "មគ្គុទេសក៍ធ្វើដំណើរ",
+                aboutSiemReap: "អំពីសៀមរាប",
+                faq: "សំណួរដែលសួរញឹកញាប់",
+                contactUs: "ទាក់ទងយើង",
+                privacy: "គោលការណ៍ឯកជនភាព",
+                terms: "លក្ខខណ្ឌប្រើប្រាស់"
+            }
+        };
+
+        /* =====================================================
+           LANGUAGE SYSTEM
+        ===================================================== */
+
+        const languageWrapper = document.getElementById("languageWrapper");
+        const languageButton = document.getElementById("languageButton");
+        const currentLanguage = document.getElementById("currentLanguage");
+        const languageMenu = document.getElementById("languageMenu");
+        const languageOptions = document.querySelectorAll(".language-option");
+
+        const languageCodes = {
+            en: "EN",
+            zh: "中文",
+            km: "ខ្មែរ"
+        };
+
+        function applyLanguage(language) {
+            const dictionary = translations[language] || translations.en;
+
+            document.querySelectorAll("[data-i18n]").forEach(function (element) {
+                const key = element.getAttribute("data-i18n");
+                if (dictionary[key]) {
+                    element.textContent = dictionary[key];
+                }
+            });
+
+            document.documentElement.lang = language;
+            currentLanguage.textContent = languageCodes[language];
+
+            languageOptions.forEach(function (option) {
+                option.classList.remove("active");
+                if (option.dataset.language === language) {
+                    option.classList.add("active");
+                }
+            });
+
+            localStorage.setItem("selectedLanguage", language);
+            localStorage.setItem("tasteSiemReapLanguage", language);
+        }
+
+        languageButton.addEventListener("click", function (event) {
+            event.stopPropagation();
+            languageMenu.classList.toggle("show");
+        });
+
+        document.addEventListener("click", function (event) {
+            if (!languageWrapper.contains(event.target)) {
+                languageMenu.classList.remove("show");
+            }
+        });
+
+        languageOptions.forEach(function (option) {
+            option.addEventListener("click", function () {
+                const language = option.dataset.language;
+                applyLanguage(language);
+                languageMenu.classList.remove("show");
+            });
+        });
+
+        /* =====================================================
+           MOBILE HAMBURGER MENU
+        ===================================================== */
+
+        const hamburger = document.getElementById("hamburger");
+        const mobileNav = document.getElementById("mobileNav");
+
+        hamburger.addEventListener("click", function () {
+            this.classList.toggle("active");
+            mobileNav.classList.toggle("open");
+            document.body.style.overflow =
+                mobileNav.classList.contains("open") ? "hidden" : "";
+        });
+
+        mobileNav.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                hamburger.classList.remove("active");
+                mobileNav.classList.remove("open");
+                document.body.style.overflow = "";
+            });
+        });
+
+        window.addEventListener("resize", function () {
+            if (window.innerWidth > 768) {
+                hamburger.classList.remove("active");
+                mobileNav.classList.remove("open");
+                document.body.style.overflow = "";
+            }
+        });
+
+        /* =====================================================
+           LOAD SAVED LANGUAGE
+        ===================================================== */
+
+        const savedLanguage =
+            localStorage.getItem("selectedLanguage") ||
+            localStorage.getItem("tasteSiemReapLanguage") ||
+            "en";
+
+        applyLanguage(savedLanguage);
+
+    </script>
+
+</body>
+
+</html>
